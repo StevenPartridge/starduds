@@ -82,9 +82,9 @@ func handle_input():
 	var is_moving = direction != 0
 	var is_jumping = Input.is_action_just_pressed("Jump") and jump_state == JumpState.FLOOR
 	var is_double_jumping = Input.is_action_just_pressed("Jump") and jump_state == JumpState.JUMP and !is_on_floor()
-	var is_crouching = Input.is_action_pressed("Crouch") and is_on_floor()
+	var is_fall_jumping = Input.is_action_just_pressed("Jump") and !is_on_floor()
+	var is_crouching = Input.is_action_pressed("Crouch") and is_on_floor() and jump_state == JumpState.FLOOR
 	var is_interacting = Input.is_action_pressed("Interact")
-	
 	if !is_interacting:
 		$PinJoint2D.node_b = $PinJoint2D.node_a
 
@@ -93,10 +93,10 @@ func handle_input():
 	# Jump Logic
 	if is_crouching:
 		fsm.change_state(state_crouch)	
-	elif is_jumping:
+	elif is_jumping and is_on_floor():
 		input_delay_until = current_time + JUMP_DELAY
 		fsm.change_state(state_jump)
-	elif !is_on_wall() and is_double_jumping:
+	elif !is_on_wall() and (is_double_jumping or is_fall_jumping):
 		input_delay_until = current_time + DOUBLE_JUMP_DELAY
 		fsm.change_state(state_double_jump)
 	elif is_double_jumping and is_on_wall() and !is_on_floor():

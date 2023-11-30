@@ -7,14 +7,13 @@
 
 [node name="Manny5" parent="." instance=ExtResource("1_sbhvn")]
 z_index = 4
-position = Vector2(1880, 192)
+position = Vector2(500, 560)
 platform_floor_layers = 4294901763
 platform_wall_layers = 3
 
 [node name="Camera2D" type="Camera2D" parent="Manny5"]
-position = Vector2(-73.0001, 26)
+position = Vector2(-251, -175)
 scale = Vector2(-7.26088, 4.75664)
-offset = Vector2(-200, -200)
 anchor_mode = 0
 zoom = Vector2(2, 2)
 limit_smoothed = true
