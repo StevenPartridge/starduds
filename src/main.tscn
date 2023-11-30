@@ -1,20 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0uhvyay2lsv1"]
 
 [ext_resource type="PackedScene" uid="uid://c2ubwtotplyjx" path="res://Manny5/Manny5.tscn" id="1_sbhvn"]
-[ext_resource type="PackedScene" uid="uid://b6uq2f25mvhhe" path="res://scenes/level1.tscn" id="2_w4wxk"]
+[ext_resource type="PackedScene" uid="uid://c8ffgxrq13l4m" path="res://scenes/level2.tscn" id="2_xrohf"]
 
 [node name="main" type="Node2D"]
 
 [node name="Manny5" parent="." instance=ExtResource("1_sbhvn")]
-z_index = 1
-position = Vector2(256, 256)
+z_index = 4
+position = Vector2(1880, 192)
 platform_floor_layers = 4294901763
 platform_wall_layers = 3
 
 [node name="Camera2D" type="Camera2D" parent="Manny5"]
-position = Vector2(-256, -256)
-offset = Vector2(0, -220)
+position = Vector2(-73.0001, 26)
+scale = Vector2(-7.26088, 4.75664)
+offset = Vector2(-200, -200)
 anchor_mode = 0
+zoom = Vector2(2, 2)
+limit_smoothed = true
 position_smoothing_enabled = true
 
-[node name="level1" parent="." instance=ExtResource("2_w4wxk")]
+[node name="level2" parent="." instance=ExtResource("2_xrohf")]

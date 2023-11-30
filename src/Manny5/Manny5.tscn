@@ -1198,19 +1198,20 @@ animations = [{
 size = Vector2(37.3967, 60.2271)
 
 [node name="Manny5" type="CharacterBody2D"]
+z_index = 2
 collision_mask = 2
 script = ExtResource("1_e4to6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2.72, 2.72)
+scale = Vector2(1.0975, 1.0975)
 sprite_frames = SubResource("SpriteFrames_xn0fi")
 animation = &"InteractionPush"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 7.43456)
-scale = Vector2(1.63116, 1.01368)
+scale = Vector2(0.71116, 0.441949)
 shape = SubResource("RectangleShape2D_qwn2m")
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]

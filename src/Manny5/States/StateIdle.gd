@@ -18,5 +18,7 @@ func _exit_state() -> void:
 func _physics_process(_delta):
 	if manny.is_on_floor():
 		animator.play("Idle")
-	manny.velocity.x = lerp(manny.velocity.x, 0.0, manny.DECELERATION)
+		manny.velocity.x = lerp(manny.velocity.x, 0.0, manny.DECELERATION)
+	else:
+		manny.velocity.x = manny.velocity.x
 	manny.move_and_slide()

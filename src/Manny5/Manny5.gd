@@ -23,10 +23,10 @@ enum JumpState {
 @onready var state_crouch = $FiniteStateMachine/StateCrouch
 @onready var state_push_pull_idle = $FiniteStateMachine/StatePushPullIdle
 
-@export var SPEED = 200.0
-@export var SPEED_SPRINT = 500.0
-@export var SPEED_PUSH_PULL = 100.0
-@export var JUMP_VELOCITY = -600.0
+@export var SPEED = 100.0
+@export var SPEED_SPRINT = 200.0
+@export var SPEED_PUSH_PULL = 50.0
+@export var JUMP_VELOCITY = -500.0
 @export var DECELERATION = 0.12
 @export var GRAVITY = ProjectSettings.get_setting("physics/2d/default_gravity") as float
 @export var jump_state = JumpState.JUMP
@@ -72,7 +72,7 @@ func get_input_direction() -> int:
 const WALL_JUMP_DELAY = 0.5
 const DOUBLE_JUMP_DELAY = 0.2
 const JUMP_DELAY = 0.1
-const LAND_DELAY = 0.4
+const LAND_DELAY = 0.15
 func handle_input():
 	if is_on_floor():
 		jump_state = JumpState.FLOOR

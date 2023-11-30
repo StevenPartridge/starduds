@@ -29,8 +29,13 @@ func apply_jump_force():
 	manny.velocity.y = manny.JUMP_VELOCITY
 
 func handle_horizontal_movement():
-	# Continue moving in direction, but face where looking
-	manny.velocity.x = manny.velocity.x
+	if abs(manny.get_input_direction()) > 0:
+		if Input.is_action_pressed("Sprint"):
+			manny.velocity.x = manny.get_input_direction() * manny.SPEED_SPRINT
+		else:
+			manny.velocity.x = manny.get_input_direction() * manny.SPEED
+	else:
+		manny.velocity.x = manny.velocity.x
 	var direction = manny.get_input_direction()
 	animator.flip_h = direction > 0 if abs(direction) > 1 else animator.flip_h
 
