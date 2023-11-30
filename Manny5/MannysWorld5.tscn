@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1egf8n4j563a"]
+
+[ext_resource type="PackedScene" uid="uid://f061epmdy5ix" path="res://Extras/WallFrame.tscn" id="1_15wtn"]
+[ext_resource type="PackedScene" uid="uid://bvbfkpdv1s02t" path="res://Extras/WallSection.tscn" id="3_2y4g8"]
+[ext_resource type="PackedScene" uid="uid://c2ubwtotplyjx" path="res://Manny5/Manny5.tscn" id="3_ie7oo"]
+[ext_resource type="PackedScene" uid="uid://g8mm8qgt803g" path="res://Interactive/MovableBlock/MovableBlock.tscn" id="4_malhj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WallContainer" parent="." instance=ExtResource("1_15wtn")]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 35.0
+offset_top = 43.0
+offset_right = 835.0
+offset_bottom = 123.0
+text = "A complete rewrite utilizing a Finite State Machine class approach"
+
+[node name="Wall2" parent="." instance=ExtResource("3_2y4g8")]
+position = Vector2(891, 491)
+rotation = 1.5708
+
+[node name="Manny5" parent="." instance=ExtResource("3_ie7oo")]
+position = Vector2(470, 252)
+scale = Vector2(1.8, 1.8)
+
+[node name="MovableBlock" parent="." groups=["can_push_pull"] instance=ExtResource("4_malhj")]
+position = Vector2(699, 280)
