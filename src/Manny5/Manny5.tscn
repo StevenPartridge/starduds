@@ -1,6 +1,7 @@
-[gd_scene load_steps=185 format=3 uid="uid://c2ubwtotplyjx"]
+[gd_scene load_steps=186 format=3 uid="uid://c2ubwtotplyjx"]
 
 [ext_resource type="Script" path="res://Manny5/Manny5.gd" id="1_e4to6"]
+[ext_resource type="Resource" uid="uid://c5vhti7l2r5q2" path="res://scenes/platformer/inventory/PlayerInventory.tres" id="2_h800n"]
 [ext_resource type="Texture2D" uid="uid://bel3vbc0dugve" path="res://assets/animations/Manny/Crouch-Idle/Player Crouch-Idle 48x48.png" id="2_v3h44"]
 [ext_resource type="Texture2D" uid="uid://cxl5wv8a0ctpw" path="res://assets/animations/Manny/Sprite Sheets/Character Idle 48x48.png" id="3_krshl"]
 [ext_resource type="Texture2D" uid="uid://dom8p4lbe3cjm" path="res://assets/animations/Manny/Pull/Player Pull 48x48.png" id="4_tnrqj"]
@@ -1201,6 +1202,7 @@ size = Vector2(37.3967, 60.2271)
 z_index = 2
 collision_mask = 2
 script = ExtResource("1_e4to6")
+inventory = ExtResource("2_h800n")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

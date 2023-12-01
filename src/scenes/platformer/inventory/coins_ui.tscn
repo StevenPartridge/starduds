@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3brynygnrcva"]
+
+[ext_resource type="Script" path="res://scenes/platformer/inventory/coins_ui.gd" id="1_7doqr"]
+
+[node name="CoinsUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_7doqr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.52, 0.495)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 5.76923
+offset_top = 2.0202
+offset_right = 45.7692
+offset_bottom = 42.0202
+scale = Vector2(1.46154, 1.46154)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+fit_content = true

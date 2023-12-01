@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cbunf2jwipxj2"]
+
+[ext_resource type="Texture2D" uid="uid://02kjrakj5r0c" path="res://icon.svg" id="1_n52s6"]
+[ext_resource type="Script" path="res://scenes/platformer/inventory/InventoryItem.gd" id="2_sq810"]
+
+[resource]
+script = ExtResource("2_sq810")
+image = ExtResource("1_n52s6")
+name = "Coin"

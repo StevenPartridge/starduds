@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://c5vhti7l2r5q2"]
+
+[ext_resource type="Script" path="res://scenes/platformer/inventory/Inventory.gd" id="1_3pcqs"]
+[ext_resource type="Resource" uid="uid://cbunf2jwipxj2" path="res://scenes/platformer/inventory/items/Coin.tres" id="1_bltqj"]
+
+[resource]
+script = ExtResource("1_3pcqs")
+items = Array[Resource("res://scenes/platformer/inventory/InventoryItem.gd")]([ExtResource("1_bltqj")])

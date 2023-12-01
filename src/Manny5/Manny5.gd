@@ -23,6 +23,8 @@ enum JumpState {
 @onready var state_crouch = $FiniteStateMachine/StateCrouch
 @onready var state_push_pull_idle = $FiniteStateMachine/StatePushPullIdle
 
+var player_inventory: Inventory = preload("res://scenes/platformer/inventory/PlayerInventory.tres")
+
 @export var SPEED = 100.0
 @export var SPEED_SPRINT = 200.0
 @export var SPEED_PUSH_PULL = 50.0
@@ -33,7 +35,7 @@ enum JumpState {
 var current_time = 0.0
 var input_delay_until = 0.0
 
-
+@export var inventory: Inventory
 
 @export var can_double_jump = true
 
@@ -95,7 +97,6 @@ func handle_input():
 		$PinJoint2D.node_b = $PinJoint2D.node_a
 
 	# print('flip_h: ', anim.flip_h, ', Is_jumping: ', is_jumping, ', jump_state == JumpState.JUMP: ', jump_state == JumpState.JUMP, ', is_on_wall: ', is_on_wall(), ', is_on_floor: ', is_on_floor())
-	print(fsm.state.name, is_on_wall())
 
 	# Jump Logic
 	if is_crouching:
@@ -127,3 +128,9 @@ func handle_input():
 
 func reset_jump_states():
 	jump_state = JumpState.FLOOR  # Reset double jump when on the floor
+	
+func collect_coin():
+	for item in inventory.items:
+		if item.name == "Coin":
+			print("POPPS")
+			item.count += 1
