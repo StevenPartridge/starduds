@@ -1200,7 +1200,7 @@ size = Vector2(37.3967, 60.2271)
 
 [node name="Manny5" type="CharacterBody2D"]
 z_index = 2
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_e4to6")
 inventory = ExtResource("2_h800n")
 

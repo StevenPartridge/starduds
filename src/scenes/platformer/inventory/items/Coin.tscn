@@ -9,6 +9,7 @@ height = 52.3809
 
 [node name="Area2D" type="Area2D"]
 scale = Vector2(0.84, 1)
+collision_layer = 4
 script = ExtResource("1_8bxa3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,3 +19,5 @@ shape = SubResource("CapsuleShape2D_7n5ru")
 z_index = 7
 scale = Vector2(0.334821, 0.28125)
 texture = ExtResource("1_nj07w")
+
+[connection signal="body_entered" from="." to="." method="_on_area_entered"]

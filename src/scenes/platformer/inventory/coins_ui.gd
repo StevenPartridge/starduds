@@ -5,7 +5,7 @@ extends Control
 
 var player_inventory = preload("res://scenes/platformer/inventory/PlayerInventory.tres")
 
-func _process(delta):
+func _process(_delta):
 	var coin_total = 0
 	for item in player_inventory.items:
 		if item.name == "Coin":
