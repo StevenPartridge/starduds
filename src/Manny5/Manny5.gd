@@ -61,6 +61,12 @@ func get_is_grab_allowed():
 			return true
 	return false
 
+func get_is_wall_land_allowed():	
+	var collider = get_collider()
+	if collider is Node:
+		return true
+	return false
+
 func get_input_direction() -> int:
 	var direction = 0
 	if Input.is_action_pressed("MoveLeft"):
@@ -89,6 +95,7 @@ func handle_input():
 		$PinJoint2D.node_b = $PinJoint2D.node_a
 
 	# print('flip_h: ', anim.flip_h, ', Is_jumping: ', is_jumping, ', jump_state == JumpState.JUMP: ', jump_state == JumpState.JUMP, ', is_on_wall: ', is_on_wall(), ', is_on_floor: ', is_on_floor())
+	print(fsm.state.name, is_on_wall())
 
 	# Jump Logic
 	if is_crouching:
@@ -115,6 +122,8 @@ func handle_input():
 			fsm.change_state(state_push_pull_idle)
 		else:
 			fsm.change_state(state_idle)
+	elif !is_on_floor() and !is_on_wall():
+		fsm.change_state(state_jump)
 
 func reset_jump_states():
 	jump_state = JumpState.FLOOR  # Reset double jump when on the floor

@@ -21,7 +21,6 @@ func _physics_process(delta):
 	if animator.animation != "JumpRoll":
 		animator.play("JumpRoll")
 	if manny.jump_state == manny.JumpState.JUMP or manny.jump_state == manny.JumpState.FLOOR:
-		print("HERE?!?!")
 		apply_jump_force()
 		manny.jump_state = manny.JumpState.DOUBLEJUMP
 	else:
