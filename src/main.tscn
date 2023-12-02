@@ -23,6 +23,6 @@ offset_left = 26.0
 offset_top = -26.0
 offset_right = 66.0001
 offset_bottom = 14.0
-scale = Vector2(-0.198244, 0.28172)
+scale = Vector2(0.404804, 0.504761)
 
 [node name="level2" parent="." instance=ExtResource("2_xrohf")]

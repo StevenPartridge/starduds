@@ -11,3 +11,8 @@ func _process(_delta):
 		if item.name == "Coin":
 			coin_total = item.count
 	rich_text_label.text = str(coin_total)
+	
+func update_value(new_text: String):
+	if not new_text:
+		return
+	rich_text_label.text=str(new_text)

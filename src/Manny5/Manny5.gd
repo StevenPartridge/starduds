@@ -22,6 +22,7 @@ enum JumpState {
 @onready var state_land = $FiniteStateMachine/StateLand
 @onready var state_crouch = $FiniteStateMachine/StateCrouch
 @onready var state_push_pull_idle = $FiniteStateMachine/StatePushPullIdle
+@onready var coins_ui = $Camera2D/CoinsUI
 
 var player_inventory: Inventory = preload("res://scenes/platformer/inventory/PlayerInventory.tres")
 
@@ -130,8 +131,7 @@ func reset_jump_states():
 	jump_state = JumpState.FLOOR  # Reset double jump when on the floor
 	
 func collect_coin():
-	print("Collect_Coin")
 	for item in inventory.items:
 		if item.name == "Coin":
-			print("POPPS")
 			item.count += 1
+			coins_ui.update_value(str(item.count))
