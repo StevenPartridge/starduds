@@ -132,6 +132,8 @@ func reset_jump_states():
 	jump_state = JumpState.FLOOR  # Reset double jump when on the floor
 	
 func collect_coin():
+	if not coins_ui:
+		return
 	for item in inventory.items:
 		if item.name == "Coin":
 			item.count += 1

@@ -9452,6 +9452,7 @@ texture = ExtResource("14_bkojy")
 15:15/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
+tile_shape = 1
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_xampg")
