@@ -1,28 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0uhvyay2lsv1"]
+[gd_scene load_steps=3 format=3 uid="uid://c0uhvyay2lsv1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7hia0"]
-[ext_resource type="PackedScene" uid="uid://c2ubwtotplyjx" path="res://Manny5/Manny5.tscn" id="1_sbhvn"]
-[ext_resource type="PackedScene" uid="uid://c3brynygnrcva" path="res://scenes/platformer/inventory/coins_ui.tscn" id="2_sy7gc"]
-[ext_resource type="PackedScene" uid="uid://c8ffgxrq13l4m" path="res://scenes/platformer/level2.tscn" id="2_xrohf"]
+[ext_resource type="Script" path="res://scripts/SceneManager.gd" id="2_xwh54"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_7hia0")
 
-[node name="Manny5" parent="." instance=ExtResource("1_sbhvn")]
-z_index = 5
-position = Vector2(1113, -279)
+[node name="NSceneManager" type="Node" parent="."]
+script = ExtResource("2_xwh54")
+Scenes = {
+"Main": &"res://main.tscn",
+"world2": &"res://scenes/platformer/level2.tscn"
+}
 
-[node name="Camera2D" type="Camera2D" parent="Manny5"]
-zoom = Vector2(2, 2)
-limit_smoothed = true
-position_smoothing_speed = 3.0
-editor_draw_limits = true
+[node name="VFlowContainer" type="VFlowContainer" parent="."]
+offset_right = 1153.0
+offset_bottom = 647.0
 
-[node name="CoinsUI" parent="Manny5/Camera2D" instance=ExtResource("2_sy7gc")]
-offset_left = 26.0
-offset_top = -26.0
-offset_right = 66.0001
-offset_bottom = 14.0
-scale = Vector2(0.404804, 0.504761)
+[node name="Button" type="Button" parent="VFlowContainer"]
+layout_mode = 2
+text = "Level 2"
 
-[node name="level2" parent="." instance=ExtResource("2_xrohf")]
+[connection signal="pressed" from="VFlowContainer/Button" to="." method="_on_button_pressed"]

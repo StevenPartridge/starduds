@@ -5,3 +5,7 @@ func _ready():
 	pass
 
 
+
+
+func _on_button_pressed():
+	SceneManager.SwitchScene("level2")

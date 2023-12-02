@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://by47xvh8pg54p"]
+
+[ext_resource type="Script" path="res://scripts/SceneManager.gd" id="1_rkl2w"]
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_rkl2w")
+Scenes = {
+"Main": &"res://main.tscn",
+"level2": &"res://scenes/platformer/level2.tscn"
+}
