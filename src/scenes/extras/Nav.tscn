@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8871b365l135"]
+
+[ext_resource type="Script" path="res://scripts/Nav.gd" id="1_2tfhq"]
+
+[node name="Nav" type="Node2D"]
+script = ExtResource("1_2tfhq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 85.0
+offset_bottom = 40.0
+color = Color(0.776471, 0.431373, 0, 0.780392)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+
+[node name="Home" type="Button" parent="CanvasGroup"]
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 25.0
+offset_bottom = 37.0
+rotation = -0.042189
+text = "/\\"
+
+[node name="Reset" type="Button" parent="CanvasGroup"]
+offset_left = 35.0
+offset_top = 4.0
+offset_right = 53.0
+offset_bottom = 35.0
+rotation = 0.059655
+text = "8"
+
+[node name="Exit" type="Button" parent="CanvasGroup"]
+offset_left = 59.0
+offset_top = 6.0
+offset_right = 77.0
+offset_bottom = 37.0
+rotation = -0.141761
+text = "X"
+
+[connection signal="pressed" from="CanvasGroup/Home" to="." method="_on_home_pressed"]
+[connection signal="pressed" from="CanvasGroup/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="CanvasGroup/Exit" to="." method="_on_exit_pressed"]

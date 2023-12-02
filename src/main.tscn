@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0uhvyay2lsv1"]
+[gd_scene load_steps=4 format=3 uid="uid://c0uhvyay2lsv1"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_7hia0"]
 [ext_resource type="Script" path="res://scripts/SceneManager.gd" id="2_xwh54"]
+[ext_resource type="PackedScene" uid="uid://bakmgd4lkduxf" path="res://scenes/extras/ParalaxSpaceBackground.tscn" id="3_0y6vf"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_7hia0")
@@ -14,11 +15,17 @@ Scenes = {
 }
 
 [node name="VFlowContainer" type="VFlowContainer" parent="."]
-offset_right = 1153.0
-offset_bottom = 647.0
+offset_left = 399.0
+offset_top = 148.0
+offset_right = 461.0
+offset_bottom = 519.0
+rotation = -0.637045
+scale = Vector2(2, 2)
 
 [node name="Button" type="Button" parent="VFlowContainer"]
 layout_mode = 2
 text = "Level 2"
+
+[node name="ParalaxSpaceBackground" parent="." instance=ExtResource("3_0y6vf")]
 
 [connection signal="pressed" from="VFlowContainer/Button" to="." method="_on_button_pressed"]
