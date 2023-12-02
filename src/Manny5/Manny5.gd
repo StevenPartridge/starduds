@@ -24,6 +24,7 @@ enum JumpState {
 @onready var state_push_pull_idle = $FiniteStateMachine/StatePushPullIdle
 @onready var coins_ui = $Camera2D/CoinsUI
 
+
 var player_inventory: Inventory = preload("res://scenes/platformer/inventory/PlayerInventory.tres")
 
 @export var SPEED = 100.0
