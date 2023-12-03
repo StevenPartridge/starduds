@@ -113,6 +113,7 @@ func handle_input():
 		input_delay_until = current_time + WALL_JUMP_DELAY
 		fsm.change_state(state_wall_jump)
 	elif !is_on_floor() and is_on_wall():
+		print("HERE", Time.get_datetime_string_from_system())
 		fsm.change_state(wall_land)
 	elif is_on_floor():
 		if (fsm.state == state_jump or fsm.state == state_double_jump or fsm.state == state_wall_jump):
@@ -125,8 +126,8 @@ func handle_input():
 			fsm.change_state(state_push_pull_idle)
 		else:
 			fsm.change_state(state_idle)
-	elif !is_on_floor() and !is_on_wall():
-		fsm.change_state(state_jump)
+#	elif !is_on_floor() and !is_on_wall():
+#		fsm.change_state(state_jump)
 
 func reset_jump_states():
 	jump_state = JumpState.FLOOR  # Reset double jump when on the floor

@@ -16,11 +16,15 @@ func _exit_state() -> void:
 	set_physics_process(false)
 
 func _physics_process(_delta):
+	if !manny.is_on_floor():
+		animator.pause()
 	if Input.is_action_pressed("Sprint"):
-		animator.play("Run")
+		if manny.is_on_floor():
+			animator.play("Run")
 		manny.velocity.x = manny.get_input_direction() * manny.SPEED_SPRINT
 	else:
-		animator.play("Walk")
+		if manny.is_on_floor():
+			animator.play("Walk")
 		manny.velocity.x = manny.get_input_direction() * manny.SPEED
 	if manny.get_input_direction() > 0:
 		animator.flip_h = false

@@ -18,6 +18,6 @@ func _physics_process(_delta):
 		return
 	elif manny.is_on_wall():
 		animator.play("WallLand")
-		manny.velocity.x = 0
+	manny.velocity.x = manny.get_input_direction() * manny.SPEED * .5
 
 	manny.move_and_slide()
