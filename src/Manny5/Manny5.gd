@@ -113,7 +113,6 @@ func handle_input():
 		input_delay_until = current_time + WALL_JUMP_DELAY
 		fsm.change_state(state_wall_jump)
 	elif !is_on_floor() and is_on_wall():
-		print("HERE", Time.get_datetime_string_from_system())
 		fsm.change_state(wall_land)
 	elif is_on_floor():
 		if (fsm.state == state_jump or fsm.state == state_double_jump or fsm.state == state_wall_jump):

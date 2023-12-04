@@ -29,13 +29,10 @@ func apply_jump_force():
 	manny.velocity.y = manny.JUMP_VELOCITY
 
 func handle_horizontal_movement():
-	if abs(manny.get_input_direction()) > 0:
-		if Input.is_action_pressed("Sprint"):
-			manny.velocity.x = manny.get_input_direction() * manny.SPEED_SPRINT
-		else:
-			manny.velocity.x = manny.get_input_direction() * manny.SPEED
+	if manny.get_input_direction() > 0:
+		manny.velocity.x = lerp(manny.velocity.x, manny.get_input_direction() * manny.SPEED, 0.05)
 	else:
 		manny.velocity.x = manny.velocity.x
-	var direction = manny.get_input_direction()
-	animator.flip_h = direction > 0 if abs(direction) > 1 else animator.flip_h
+#	var direction = manny.get_input_direction()
+#	animator.flip_h = direction > 0 if abs(direction) > 1 else animator.flip_h
 
