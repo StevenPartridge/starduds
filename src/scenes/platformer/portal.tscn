@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://bc7456s2uhxy1"]
+
+[ext_resource type="Script" path="res://scenes/platformer/portal.gd" id="1_wchdk"]
+[ext_resource type="Texture2D" uid="uid://c1m8r7lpvt4un" path="res://assets/animations/portals/portal5_spritesheet.png" id="2_d4amx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g68e3"]
+radius = 49.0102
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeadx"]
+atlas = ExtResource("2_d4amx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uf63"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeadx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_rwi1g"]
+resource_name = "pulse"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4.4, 4.4), Vector2(4.8, 4.8), Vector2(4.4, 4.4), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.174533, 0.0, -0.174533, 0.0, 0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.964706, 0.698039, 0.796078, 1), Color(0.839216, 0.278431, 0.419608, 1), Color(0.0352941, 0.447059, 0.505882, 1), Color(0.764706, 0.196078, 0.458824, 1), Color(0.964706, 0.698039, 0.796078, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i11ag"]
+_data = {
+"pulse": SubResource("Animation_rwi1g")
+}
+
+[node name="portal" type="Area2D"]
+script = ExtResource("1_wchdk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.88, 1)
+shape = SubResource("CircleShape2D_g68e3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.812871, 0.316963, 0.540043, 1)
+rotation = 0.0420318
+scale = Vector2(4.30367, 4.30367)
+sprite_frames = SubResource("SpriteFrames_0uf63")
+frame_progress = 0.54597
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_i11ag")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

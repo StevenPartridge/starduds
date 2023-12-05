@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c3brynygnrcva" path="res://scenes/platformer/inventory/coins_ui.tscn" id="4_07w0q"]
 [ext_resource type="PackedScene" uid="uid://b8871b365l135" path="res://scenes/extras/Nav.tscn" id="5_jw8ua"]
 
-[node name="level1" type="TileMap"]
+[node name="level1" type="TileMap" groups=["World"]]
 position = Vector2(-24, -16)
 tile_set = ExtResource("1_gsuyr")
 format = 2
@@ -59,9 +59,15 @@ position = Vector2(4200, 400)
 [node name="Coin10" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(5160, -26)
 
-[node name="Manny5" parent="." instance=ExtResource("3_vfl6x")]
+[node name="Manny5" parent="." node_paths=PackedStringArray("coins_ui") instance=ExtResource("3_vfl6x")]
 z_index = 7
 position = Vector2(160, 448)
+coins_ui = NodePath("Camera2D/CoinsUI")
+SPEED = 250.0
+SPEED_SPRINT = 500.0
+SPEED_PUSH_PULL = 200.0
+JUMP_VELOCITY = -700.0
+DECELERATION = 0.1
 
 [node name="ParalaxSpaceBackground" parent="Manny5" instance=ExtResource("3_pd8w6")]
 

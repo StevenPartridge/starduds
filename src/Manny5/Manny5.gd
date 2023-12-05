@@ -7,9 +7,19 @@ enum JumpState {
 	DOUBLEJUMP
 }
 
+enum Direction {
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN
+}
 @onready var anim = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
 @onready var ray_cast_2d_right = $RayCast2DRight
-@onready var ray_cast_2d_2_left = $RayCast2D2Left
+@onready var ray_cast_2d_left = $RayCast2DLeft
+@onready var ray_cast_2d_right_ankle = $RayCast2DRightAnkle
+@onready var ray_cast_2d_left_ankle = $RayCast2DLeftAnkle
+
 @onready var pin_joint_2d = $PinJoint2D
 
 @onready var fsm = $FiniteStateMachine
@@ -22,7 +32,7 @@ enum JumpState {
 @onready var state_land = $FiniteStateMachine/StateLand
 @onready var state_crouch = $FiniteStateMachine/StateCrouch
 @onready var state_push_pull_idle = $FiniteStateMachine/StatePushPullIdle
-@onready var coins_ui = $Camera2D/CoinsUI
+@export var coins_ui: Control
 
 
 var player_inventory: Inventory = preload("res://scenes/platformer/inventory/PlayerInventory.tres")
@@ -51,12 +61,38 @@ func _physics_process(delta):
 
 func get_collider():
 	var right = ray_cast_2d_right.get_collider()
-	var left = ray_cast_2d_2_left.get_collider()
+	var left = ray_cast_2d_left.get_collider()
 	if right:
 		return right
 	if left:
 		return left
+
+func get_ankle_collider():
+	var right = ray_cast_2d_right_ankle.get_collider()
+	var left = ray_cast_2d_left_ankle.get_collider()
+	if right:
+		return right
+	if left:
+		return left
+
+func get_ankle_collider_direction():
+	var right = ray_cast_2d_right_ankle.get_collider()
+	var left = ray_cast_2d_left_ankle.get_collider()
+	if right and !left:
+		return Direction.RIGHT
+	if left and !right:
+		return Direction.LEFT
 	
+func should_nudge() -> bool:
+	var direction = get_enum_direction()
+	var nudge_direction = get_ankle_collider_direction()
+	if (nudge_direction == null or direction == null) or direction != nudge_direction:
+		return false
+	var ankle_collider = get_ankle_collider()
+	var mid_collider = get_collider()
+	if !mid_collider and ankle_collider and ankle_collider.is_in_group("World"):
+		return true
+	return false
 
 func get_is_grab_allowed():	
 	var collider = get_collider()
@@ -78,6 +114,19 @@ func get_input_direction() -> int:
 	if Input.is_action_pressed("MoveRight"):
 		direction += 1
 	return direction
+
+func get_enum_direction():
+	var direction = 0
+	if Input.is_action_pressed("MoveLeft"):
+		direction -= 1
+	if Input.is_action_pressed("MoveRight"):
+		direction += 1
+	
+	if direction > 0:
+		return Direction.RIGHT
+	elif direction < 0:
+		return Direction.LEFT
+	
 
 const WALL_JUMP_DELAY = 0.5
 const DOUBLE_JUMP_DELAY = 0.2
@@ -138,3 +187,13 @@ func collect_coin():
 		if item.name == "Coin":
 			item.count += 1
 			coins_ui.update_value(str(item.count))
+
+func some_function():
+	print("start")
+	await get_tree().create_timer(1.0).timeout
+	print("end")
+
+func teleport_to(location: String) -> void:
+	animation_player.play("teleport")
+	await get_tree().create_timer(0.4).timeout
+	SceneManager.SwitchScene(location)
