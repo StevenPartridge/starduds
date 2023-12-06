@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc7456s2uhxy1"]
+[gd_scene load_steps=9 format=3 uid="uid://bc7456s2uhxy1"]
 
 [ext_resource type="Script" path="res://scenes/platformer/portal.gd" id="1_wchdk"]
 [ext_resource type="Texture2D" uid="uid://c1m8r7lpvt4un" path="res://assets/animations/portals/portal5_spritesheet.png" id="2_d4amx"]
@@ -67,11 +67,13 @@ _data = {
 "pulse": SubResource("Animation_rwi1g")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxan3"]
+
 [node name="portal" type="Area2D"]
 script = ExtResource("1_wchdk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.88, 1)
+[node name="TriggerTeleport" type="CollisionShape2D" parent="."]
+scale = Vector2(0.439999, 0.499999)
 shape = SubResource("CircleShape2D_g68e3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -86,4 +88,11 @@ libraries = {
 "": SubResource("AnimationLibrary_i11ag")
 }
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="TriggerGravity" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(11.08, 11.08)
+shape = SubResource("CircleShape2D_oxan3")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

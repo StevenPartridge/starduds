@@ -15,5 +15,9 @@ func _process(_delta):
 func _on_body_entered(body):
 	if body.has_method("teleport_to"):
 		body.teleport_to(teleport_to)
-		queue_free()
 
+
+
+func _on_area_2d_body_entered(body):
+	if body.has_method("gravity_to"):
+		body.gravity_to(position.x, position.y)

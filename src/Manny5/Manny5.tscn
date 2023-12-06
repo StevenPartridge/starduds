@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://c2ubwtotplyjx"]
+[gd_scene load_steps=189 format=3 uid="uid://c2ubwtotplyjx"]
 
 [ext_resource type="Script" path="res://Manny5/Manny5.gd" id="1_e4to6"]
 [ext_resource type="Resource" uid="uid://c5vhti7l2r5q2" path="res://scenes/platformer/inventory/PlayerInventory.tres" id="2_h800n"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://Manny5/States/StateLand.gd" id="27_3lrfo"]
 [ext_resource type="Script" path="res://Manny5/States/StateCrouch.gd" id="28_dlahs"]
 [ext_resource type="Script" path="res://Manny5/States/StatePushPullIdle.gd" id="29_bddhp"]
+[ext_resource type="Script" path="res://Manny5/States/StateTeleport.gd" id="31_a05r5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1nxw2"]
 atlas = ExtResource("2_v3h44")
@@ -1212,6 +1213,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(3.34508, 3.34508), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 3.14159, 6.28319]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_koeh0"]
 _data = {
@@ -1285,6 +1298,12 @@ manny = NodePath("../..")
 script = ExtResource("29_bddhp")
 animator = NodePath("../../AnimatedSprite2D")
 manny = NodePath("../..")
+
+[node name="StateTeleport" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("animator", "manny", "animation_player")]
+script = ExtResource("31_a05r5")
+animator = NodePath("../../AnimatedSprite2D")
+manny = NodePath("../..")
+animation_player = NodePath("../../AnimationPlayer")
 
 [node name="RayCast2DRight" type="RayCast2D" parent="."]
 position = Vector2(1, 17)

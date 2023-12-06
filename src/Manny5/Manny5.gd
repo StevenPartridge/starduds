@@ -32,6 +32,8 @@ enum Direction {
 @onready var state_land = $FiniteStateMachine/StateLand
 @onready var state_crouch = $FiniteStateMachine/StateCrouch
 @onready var state_push_pull_idle = $FiniteStateMachine/StatePushPullIdle
+@onready var state_teleport = $FiniteStateMachine/StateTeleport
+
 @export var coins_ui: Control
 
 
@@ -46,6 +48,8 @@ var player_inventory: Inventory = preload("res://scenes/platformer/inventory/Pla
 @export var jump_state = JumpState.JUMP
 var current_time = 0.0
 var input_delay_until = 0.0
+var is_teleport: bool = false
+var move_to = [0.0, 0.0]
 
 @export var inventory: Inventory
 
@@ -57,7 +61,7 @@ func _ready():
 func _physics_process(delta):
 	current_time += delta
 	velocity.y += GRAVITY * delta
-	handle_input()
+	update_state()
 
 func get_collider():
 	var right = ray_cast_2d_right.get_collider()
@@ -132,7 +136,9 @@ const WALL_JUMP_DELAY = 0.5
 const DOUBLE_JUMP_DELAY = 0.2
 const JUMP_DELAY = 0.1
 const LAND_DELAY = 0.15
-func handle_input():
+func update_state():
+	if is_teleport:
+		fsm.change_state(state_teleport)
 	if is_on_floor():
 		jump_state = JumpState.FLOOR
 	if input_delay_until > current_time:
@@ -194,6 +200,11 @@ func some_function():
 	print("end")
 
 func teleport_to(location: String) -> void:
-	animation_player.play("teleport")
+	
 	await get_tree().create_timer(0.4).timeout
 	SceneManager.SwitchScene(location)
+	
+func gravity_to(x: int, y: int):
+	is_teleport = true
+	animation_player.play("teleport")
+	move_to = [x,y]
