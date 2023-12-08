@@ -27,5 +27,7 @@ layout_mode = 2
 text = "Level 2"
 
 [node name="ParalaxSpaceBackground" parent="." instance=ExtResource("3_0y6vf")]
+scale = Vector2(2.5, 2.5)
+transform = Transform2D(2.5, 0, 0, 2.5, 0, 0)
 
 [connection signal="pressed" from="VFlowContainer/Button" to="." method="_on_button_pressed"]

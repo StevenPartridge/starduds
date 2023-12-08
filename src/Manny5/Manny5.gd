@@ -193,6 +193,9 @@ func collect_coin():
 		if item.name == "Coin":
 			item.count += 1
 			coins_ui.update_value(str(item.count))
+			
+func get_inventory() -> Inventory:
+	return inventory
 
 func some_function():
 	print("start")

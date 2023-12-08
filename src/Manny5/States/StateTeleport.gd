@@ -15,7 +15,7 @@ func _enter_state() -> void:
 func _exit_state() -> void:
 	set_physics_process(false)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	animator.play("Run")
 	manny.velocity = Vector2.ZERO  # Reset velocity
 
