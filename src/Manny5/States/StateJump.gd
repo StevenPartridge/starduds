@@ -29,8 +29,8 @@ func apply_jump_force():
 	manny.velocity.y = manny.JUMP_VELOCITY
 
 func handle_horizontal_movement():
-	if manny.get_input_direction() > 0:
-		manny.velocity.x = lerp(manny.velocity.x, manny.get_input_direction() * manny.SPEED, 0.4)
+	if abs(manny.get_input_direction()) > 0:
+		manny.velocity.x = lerp(manny.velocity.x, manny.get_input_direction() * manny.SPEED, 1)
 	else:
 		manny.velocity.x = manny.velocity.x
 #	var direction = manny.get_input_direction()

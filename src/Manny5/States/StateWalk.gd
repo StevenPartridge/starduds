@@ -19,15 +19,11 @@ func _physics_process(_delta):
 	if !manny.is_on_floor():
 		animator.pause()
 	if Input.is_action_pressed("Sprint"):
-		if manny.should_nudge():
-			manny.velocity.y = -300
-		if manny.is_on_floor() or manny.should_nudge():
+		if manny.is_on_floor():
 			animator.play("Run")
 		manny.velocity.x = manny.get_input_direction() * manny.SPEED_SPRINT
 	else:
-		if manny.should_nudge():
-			manny.velocity.y = -200
-		if manny.is_on_floor() or manny.should_nudge():
+		if manny.is_on_floor():
 			animator.play("Walk")
 		manny.velocity.x = manny.get_input_direction() * manny.SPEED
 	if manny.get_input_direction() > 0:

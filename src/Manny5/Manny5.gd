@@ -40,6 +40,7 @@ enum Direction {
 var player_inventory: Inventory = preload("res://scenes/platformer/inventory/PlayerInventory.tres")
 
 @export var SPEED = 100.0
+@export var NUDGE_SPEED = 1.0
 @export var SPEED_SPRINT = 200.0
 @export var SPEED_PUSH_PULL = 50.0
 @export var JUMP_VELOCITY = -500.0
@@ -60,7 +61,11 @@ func _ready():
 
 func _physics_process(delta):
 	current_time += delta
-	velocity.y += GRAVITY * delta
+	if Input.is_action_pressed("Jump"):
+		velocity.y += GRAVITY * delta / 2
+	else:	
+		velocity.y += GRAVITY * delta
+		
 	update_state()
 
 func get_collider():

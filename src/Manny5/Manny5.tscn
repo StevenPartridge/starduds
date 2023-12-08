@@ -1197,7 +1197,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q38nc"]
-size = Vector2(20.6492, 16.9293)
+size = Vector2(14.1444, 14.1921)
 
 [sub_resource type="Animation" id="Animation_ldjgn"]
 resource_name = "teleport"
@@ -1246,7 +1246,8 @@ animation = &"InteractionPush"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.62176, 15.1194)
+position = Vector2(-0.0583057, 13.376)
+rotation = -0.785398
 scale = Vector2(3.45602, 3.45602)
 shape = SubResource("RectangleShape2D_q38nc")
 
@@ -1306,20 +1307,20 @@ manny = NodePath("../..")
 animation_player = NodePath("../../AnimationPlayer")
 
 [node name="RayCast2DRight" type="RayCast2D" parent="."]
-position = Vector2(1, 17)
+position = Vector2(0, 11)
 target_position = Vector2(70, 0)
 
 [node name="RayCast2DLeft" type="RayCast2D" parent="."]
-position = Vector2(1, 17)
+position = Vector2(0, 11)
 target_position = Vector2(-70, 0)
 
 [node name="RayCast2DRightAnkle" type="RayCast2D" parent="."]
 position = Vector2(0, 39)
-target_position = Vector2(55, 0)
+target_position = Vector2(60, 0)
 
 [node name="RayCast2DLeftAnkle" type="RayCast2D" parent="."]
 position = Vector2(0, 39)
-target_position = Vector2(-55, 0)
+target_position = Vector2(-60, 0)
 
 [node name="PinJoint2D" type="PinJoint2D" parent="."]
 node_a = NodePath("..")

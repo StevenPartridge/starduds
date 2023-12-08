@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c3brynygnrcva" path="res://scenes/platformer/inventory/coins_ui.tscn" id="4_07w0q"]
 [ext_resource type="PackedScene" uid="uid://b8871b365l135" path="res://scenes/extras/Nav.tscn" id="5_jw8ua"]
 
-[node name="level1" type="TileMap" groups=["World"]]
+[node name="Node2D" type="Node2D"]
+
+[node name="level1" type="TileMap" parent="." groups=["World"]]
 position = Vector2(-24, -16)
 tile_set = ExtResource("1_gsuyr")
 format = 2
@@ -27,41 +29,41 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(-1180122, 4, 6, -1114585, 4, 5, -1049050, 4, 6, -1180121, 65540, 6, -1114584, 65540, 5, -1049049, 65540, 6, -1180120, 131076, 6, -1114583, 131076, 5, -1049048, 131076, 6, -1180119, 196612, 6, -1114582, 196612, 5, -1049047, 196612, 6, -1180118, 262148, 6, -1114581, 4, 5, -1049046, 4, 6, -1180117, 4, 6, -1114580, 4, 5, -1049045, 4, 6, -1180116, 65540, 6, -1114579, 65540, 5, -1049044, 65540, 6, -1180115, 131076, 6, -1114578, 131076, 5, -1049043, 131076, 6, -1180114, 196612, 6, -1114577, 196612, 5, -1049042, 196612, 6, -1180113, 262148, 6, -1114576, 262148, 5, -1049041, 262148, 6, -1311194, 4, 4, -1245657, 4, 5, -1311193, 65540, 4, -1245656, 65540, 5, -1311192, 131076, 4, -1245655, 131076, 5, -1311191, 196612, 4, -1245654, 196612, 5, -1311190, 262148, 4, -1245653, 262148, 5, -1311189, 4, 4, -1245652, 4, 5, -1311188, 65540, 4, -1245651, 65540, 5, -1311187, 131076, 4, -1245650, 131076, 5, -1311186, 196612, 4, -1245649, 196612, 5, -1311185, 262148, 4, -1245648, 262148, 5)
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
+[node name="CanvasGroup" type="CanvasGroup" parent="level1"]
 
-[node name="Coin1" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin1" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(298, 474)
 
-[node name="Coin2" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin2" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(840, 237)
 
-[node name="Coin3" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin3" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(2192, -7.99997)
 
-[node name="Coin4" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin4" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(2192, 128)
 
-[node name="Coin5" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin5" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(2192, 280)
 
-[node name="Coin6" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin6" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(2888, 432)
 
-[node name="Coin7" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin7" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(3016, 69)
 
-[node name="Coin8" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin8" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(3472, 376)
 
-[node name="Coin9" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin9" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(4200, 400)
 
-[node name="Coin10" parent="CanvasGroup" instance=ExtResource("2_8vogx")]
+[node name="Coin10" parent="level1/CanvasGroup" instance=ExtResource("2_8vogx")]
 position = Vector2(5160, -26)
 
 [node name="Manny5" parent="." node_paths=PackedStringArray("coins_ui") instance=ExtResource("3_vfl6x")]
 z_index = 7
-position = Vector2(160, 448)
+position = Vector2(136, 432)
 coins_ui = NodePath("Camera2D/CoinsUI")
 SPEED = 250.0
 SPEED_SPRINT = 500.0
