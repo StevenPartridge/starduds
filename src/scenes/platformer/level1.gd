@@ -3,6 +3,7 @@ extends Node2D
 @export var level_requirement: int = 5
 
 @onready var manny = $Manny5
+@onready var canvas_group = $level1/CanvasGroup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +16,7 @@ func _process(_delta):
 	
 func check_portal():
 	var inventory: Inventory = manny.get_inventory()
-	var all_children = get_children()
+	var all_children = canvas_group.get_children()
 	for item in inventory.items:
 		if item.name == "Coin":
 			for portal in all_children:
