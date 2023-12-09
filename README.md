@@ -15,8 +15,27 @@ To dive into the world of "Stard∞ds", follow these simple steps:
 
 "Stard∞ds" features 10 distinct levels, each with its unique gameplay style:
 
+- **Menu Screen**: Simple, elegent. It just works.
+
+
+https://github.com/StevenPartridge/starduds/assets/22158507/d2b26113-f705-456a-93c8-7ba9ddfeefd1
+
+
+  
 - **Level 1**: A traditional 'Mario' style 2D platformer. Navigate a flat terrain, jump over obstacles, and collect 5 Godot Coins to open the portal and exit!
+
+
+https://github.com/StevenPartridge/starduds/assets/22158507/6c835d27-e923-4aa3-88e3-6e9c576c0be8
+
+
+  
 - **Level 2**: "Metroidvania" style level set in a hollowed-out asteroid. This level features branching paths, tight jumps, and exploration opportunities. It's a perfect place to test the main character's abilities in varied environments.
+
+
+https://github.com/StevenPartridge/starduds/assets/22158507/7520a8c2-f156-4efc-9b42-6e1da859be19
+
+
+  
 - **Level 3**: A space shooter with a twist. Point forward, pull the trigger, and pew pew pew! This level is focused on component-based development, featuring straightforward movement, projectiles, and potentially power-ups. We're also exploring adding shaders or particle physics for an extra kick.
 
 (Note: More levels will be detailed as development progresses.)
