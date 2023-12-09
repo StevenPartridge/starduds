@@ -7,5 +7,8 @@ func _ready():
 
 
 
+func _on_button_pressed_level_1():
+	SceneManager.SwitchScene("level1")
+	
 func _on_button_pressed():
 	SceneManager.SwitchScene("level2")

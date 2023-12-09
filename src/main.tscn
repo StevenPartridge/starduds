@@ -22,7 +22,11 @@ offset_bottom = 519.0
 rotation = -0.637045
 scale = Vector2(2, 2)
 
-[node name="Button" type="Button" parent="VFlowContainer"]
+[node name="Level1Button" type="Button" parent="VFlowContainer"]
+layout_mode = 2
+text = "Level 1"
+
+[node name="Level2Button" type="Button" parent="VFlowContainer"]
 layout_mode = 2
 text = "Level 2"
 
@@ -30,4 +34,5 @@ text = "Level 2"
 scale = Vector2(2.5, 2.5)
 transform = Transform2D(2.5, 0, 0, 2.5, 0, 0)
 
-[connection signal="pressed" from="VFlowContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VFlowContainer/Level1Button" to="." method="_on_button_pressed_level_1"]
+[connection signal="pressed" from="VFlowContainer/Level2Button" to="." method="_on_button_pressed"]

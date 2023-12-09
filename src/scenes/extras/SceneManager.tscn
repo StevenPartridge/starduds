@@ -6,5 +6,6 @@
 script = ExtResource("1_rkl2w")
 Scenes = {
 "Main": &"res://main.tscn",
+"level1": &"res://scenes/platformer/level1.tscn",
 "level2": &"res://scenes/platformer/level2.tscn"
 }
