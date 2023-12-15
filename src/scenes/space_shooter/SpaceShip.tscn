@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci8bwqa2aii8e"]
+
+[ext_resource type="Script" path="res://scenes/space_shooter/SpaceShip.gd" id="1_2jq55"]
+[ext_resource type="Texture2D" uid="uid://dykxsfds6dbks" path="res://assets/spaceship.png" id="1_5w1gv"]
+[ext_resource type="Shader" path="res://scenes/space_shooter/SpaceShipTilt.gdshader" id="1_gkaqn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp343"]
+radius = 41.0
+height = 116.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_twi33"]
+resource_local_to_scene = true
+resource_name = "ShipTilt"
+shader = ExtResource("1_gkaqn")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[node name="SpaceShip" type="Node2D"]
+position = Vector2(586, 466)
+script = ExtResource("1_2jq55")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-4, 0)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_xp343")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+material = SubResource("ShaderMaterial_twi33")
+position = Vector2(0, -3.05176e-05)
+rotation = 1.57079
+scale = Vector2(0.182609, 0.182609)
+texture = ExtResource("1_5w1gv")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7q8iovrwhrq4"]
+
+[ext_resource type="PackedScene" uid="uid://c2caru4t8hysw" path="res://scenes/space_shooter/BackgroundSpace.tscn" id="1_xyl74"]
+[ext_resource type="PackedScene" uid="uid://ci8bwqa2aii8e" path="res://scenes/space_shooter/SpaceShip.tscn" id="2_0ah2v"]
+
+[node name="level3" type="Node2D"]
+
+[node name="BackgroundSpace" parent="." instance=ExtResource("1_xyl74")]
+
+[node name="SpaceShip" parent="BackgroundSpace" instance=ExtResource("2_0ah2v")]
+position = Vector2(160, 377)
