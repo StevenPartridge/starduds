@@ -30,9 +30,14 @@ text = "Level 1"
 layout_mode = 2
 text = "Level 2"
 
+[node name="Level3Button" type="Button" parent="VFlowContainer"]
+layout_mode = 2
+text = "Level 2"
+
 [node name="ParalaxSpaceBackground" parent="." instance=ExtResource("3_0y6vf")]
 scale = Vector2(2.5, 2.5)
 transform = Transform2D(2.5, 0, 0, 2.5, 0, 0)
 
 [connection signal="pressed" from="VFlowContainer/Level1Button" to="." method="_on_button_pressed_level_1"]
 [connection signal="pressed" from="VFlowContainer/Level2Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VFlowContainer/Level3Button" to="." method="_on_button_pressed_level_3"]

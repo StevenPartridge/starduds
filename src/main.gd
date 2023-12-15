@@ -12,3 +12,6 @@ func _on_button_pressed_level_1():
 	
 func _on_button_pressed():
 	SceneManager.SwitchScene("level2")
+	
+func _on_button_pressed_level_3():
+	SceneManager.SwitchScene("level3")
