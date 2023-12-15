@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkyfmcq1lfiuq"]
+
+[ext_resource type="Script" path="res://scenes/space_shooter/EnemyDartWing.gd" id="1_o5hbk"]
+[ext_resource type="Texture2D" uid="uid://hmegcmdn6f6a" path="res://assets/DartWing.png" id="1_t7wtn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_isf5g"]
+radius = 28.0
+
+[node name="EnemyDartWing" type="CharacterBody2D"]
+script = ExtResource("1_o5hbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57079
+scale = Vector2(0.0995, 0.0995)
+texture = ExtResource("1_t7wtn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-13, 0)
+shape = SubResource("CircleShape2D_isf5g")
