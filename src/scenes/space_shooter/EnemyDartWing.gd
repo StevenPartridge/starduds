@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 
 # Speed of the enemy
 const SPEED: float = 100

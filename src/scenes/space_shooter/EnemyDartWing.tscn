@@ -4,16 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://hmegcmdn6f6a" path="res://assets/DartWing.png" id="1_t7wtn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isf5g"]
-radius = 28.0
+radius = 210.364
 
-[node name="EnemyDartWing" type="CharacterBody2D"]
+[node name="Node2D" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_o5hbk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="EnemyDartWing" type="CharacterBody2D" parent="."]
+position = Vector2(-4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyDartWing"]
+position = Vector2(4, 0)
 rotation = 1.57079
-scale = Vector2(0.0995, 0.0995)
 texture = ExtResource("1_t7wtn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-13, 0)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDartWing"]
 shape = SubResource("CircleShape2D_isf5g")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ci8bwqa2aii8e"]
+[gd_scene load_steps=7 format=3 uid="uid://ci8bwqa2aii8e"]
 
 [ext_resource type="Script" path="res://scenes/space_shooter/SpaceShip.gd" id="1_2jq55"]
 [ext_resource type="Texture2D" uid="uid://dykxsfds6dbks" path="res://assets/spaceship.png" id="1_5w1gv"]
 [ext_resource type="Shader" path="res://scenes/space_shooter/SpaceShipTilt.gdshader" id="1_gkaqn"]
+[ext_resource type="PackedScene" uid="uid://csi4vomp8k1l7" path="res://scenes/space_shooter/LaserBeam.tscn" id="2_rqoc1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp343"]
 radius = 41.0
@@ -19,10 +20,14 @@ shader_parameter/x_rot = 0.0
 shader_parameter/inset = 0.0
 
 [node name="SpaceShip" type="Node2D"]
-position = Vector2(586, 466)
 script = ExtResource("1_2jq55")
 
+[node name="LaserBeam" parent="." instance=ExtResource("2_rqoc1")]
+position = Vector2(2, 0)
+scale = Vector2(0.424307, 0.424307)
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-60, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-4, 0)

@@ -1,12 +1,13 @@
 extends Node2D
 
 @onready var sprite_2d: Sprite2D = $CharacterBody2D/Sprite2D as Sprite2D
+@onready var laser_beam = $LaserBeam
 
 # Maximum speed and acceleration time
-const MAX_SPEED: float = 200 # Adjust as needed
-const ACCELERATION_TIME: float = 4.0 # Time to reach max speed
-const rotation_speed: float = 12.0 # How far the ship rotates (front/back is divided by 2)
-const DECELERATION_TIME: float = 4.0 # Time to stop
+const MAX_SPEED: float = 400 # Adjust as needed
+const ACCELERATION_TIME: float = 2.0 # Time to reach max speed
+const rotation_speed: float = 18.0 # How far the ship rotates (front/back is divided by 2)
+const DECELERATION_TIME: float = 3.0 # Time to stop
 
 var previous_direction: Vector2 = Vector2.ZERO
 var current_speed: float = 0.0
@@ -14,13 +15,19 @@ var acceleration_per_second: float = MAX_SPEED / ACCELERATION_TIME
 var deceleration_per_second: float = MAX_SPEED / DECELERATION_TIME
 var velocity: Vector2 = Vector2.ZERO
 
+var background: Node2D
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Initialization can be added here if necessary.
+	if get_tree().get_nodes_in_group("background").size() > 0:
+		background = get_tree().get_nodes_in_group("background")[0]
+		print(background.get_class())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	if laser_beam.target:
+		look_at(laser_beam.target.global_position)
 
 	var direction: Vector2 = Vector2.ZERO
 	var rotation_change: Vector2 = Vector2.ZERO
@@ -52,6 +59,10 @@ func _process(delta):
 		velocity = previous_direction.normalized() * current_speed
 
 	position += velocity * delta
+	
+	if background and background.has_method("_set_velocity"):
+#		background._set_velocity(velocity)
+		pass
 
 	if sprite_2d.material:
 		var shader: ShaderMaterial = sprite_2d.get_material() as ShaderMaterial

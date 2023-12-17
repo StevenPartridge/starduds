@@ -1,29 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2caru4t8hysw"]
+[gd_scene load_steps=5 format=3 uid="uid://c2caru4t8hysw"]
 
-[ext_resource type="Shader" path="res://scenes/space_shooter/BackgroundSpace.gdshader" id="1_yb8q5"]
+[ext_resource type="Shader" path="res://scenes/space_shooter/BackgroundNebula.gdshader" id="1_5srjs"]
+[ext_resource type="Script" path="res://scenes/space_shooter/BackgroundSpace.gd" id="1_mm2ox"]
 [ext_resource type="Texture2D" uid="uid://bjan6fnt68rhm" path="res://assets/pixil-frame-0.png" id="2_bqwxn"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_sw3vd"]
-shader = ExtResource("1_yb8q5")
-shader_parameter/iterations = 17
-shader_parameter/formuparam = 0.53
-shader_parameter/volsteps = 7
-shader_parameter/stepsize = 0.1
-shader_parameter/zoom = 0.8
-shader_parameter/tile = 0.85
-shader_parameter/speed = 0.001
-shader_parameter/brightness = 0.0015
-shader_parameter/darkmatter = 0.3
-shader_parameter/distfading = 0.73
-shader_parameter/saturation = 0.85
-shader_parameter/rotation = null
-shader_parameter/colorampMix = 0.5
-shader_parameter/isColoramp = null
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcgoi"]
+shader = ExtResource("1_5srjs")
+shader_parameter/mouse = Vector2(510.12, 0)
+shader_parameter/time = null
+shader_parameter/speed2 = 0.2
 
-[node name="BackgroundSpace" type="Node2D"]
+[node name="BackgroundSpace" type="Node2D" groups=["background"]]
+script = ExtResource("1_mm2ox")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_sw3vd")
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["has_shader"]]
+material = SubResource("ShaderMaterial_vcgoi")
 position = Vector2(580.375, 327.5)
 scale = Vector2(1.16925, 0.671)
 texture = ExtResource("2_bqwxn")

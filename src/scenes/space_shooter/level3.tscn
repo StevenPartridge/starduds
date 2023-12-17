@@ -7,10 +7,17 @@
 [node name="level3" type="Node2D"]
 
 [node name="BackgroundSpace" parent="." instance=ExtResource("1_xyl74")]
+scale = Vector2(10, 10)
 
-[node name="SpaceShip" parent="BackgroundSpace" groups=["player"] instance=ExtResource("2_0ah2v")]
-position = Vector2(160, 377)
+[node name="EnemyDartWing" parent="." instance=ExtResource("3_2c4fu")]
+z_index = 2
+position = Vector2(1978, 711)
+rotation = -3.14159
+scale = Vector2(0.0895934, 0.0895934)
 
-[node name="EnemyDartWing" parent="BackgroundSpace" instance=ExtResource("3_2c4fu")]
-position = Vector2(936, 317)
-rotation = -1.57079
+[node name="SpaceShip" parent="." groups=["player"] instance=ExtResource("2_0ah2v")]
+position = Vector2(1033, 709)
+
+[node name="Camera2D" type="Camera2D" parent="SpaceShip"]
+position = Vector2(182, 2)
+zoom = Vector2(0.5, 0.5)
