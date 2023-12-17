@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var area_2d = $Area2D
 
-@export var target: Node2D
+var target: Node2D
 
 @export var laser_color: Color = Color(0.0, 0.0, 1.0) # Blue color
 @export var laser_width: float = 10.0
@@ -36,4 +36,7 @@ func get_distance_to_target(target_body: Node) -> float:
 # Function to draw the laser
 func _draw():
 	if target != null:
+		draw_circle(laser_end, 100, Color(1, 1, 1)) # Way off for some reason
+		draw_circle(laser_start, 5, Color(1, 0, 0))
+		draw_circle(laser_end, 5, Color(0, 1, 0))
 		draw_line(laser_start, laser_end, laser_color, laser_width)
