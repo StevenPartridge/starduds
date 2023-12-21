@@ -4,7 +4,7 @@ extends Node2D
 @onready var laser_beam = $LaserBeam
 
 # Movement parameters
-const MAX_SPEED: float = 400
+const MAX_SPEED: float = 600
 const ACCELERATION_TIME: float = 2.0
 const DECELERATION_TIME: float = 3.0
 const MAX_ROTATION_SPEED: float = 1.0 # Maximum rotation speed in radians per second

@@ -1,7 +1,7 @@
 extends Node2D
 
 # Speed of the enemy
-const SPEED: float = 100
+const SPEED: float = 1 # 100 normally, testing with 1
 
 # Reference to the target node
 var target: Node2D

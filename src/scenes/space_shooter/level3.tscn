@@ -11,7 +11,25 @@ scale = Vector2(10, 10)
 
 [node name="EnemyDartWing" parent="." instance=ExtResource("3_2c4fu")]
 z_index = 2
-position = Vector2(1978, 711)
+position = Vector2(758, 363)
+rotation = -3.14159
+scale = Vector2(0.0895934, 0.0895934)
+
+[node name="EnemyDartWing2" parent="." instance=ExtResource("3_2c4fu")]
+z_index = 2
+position = Vector2(1978, 371)
+rotation = -3.14159
+scale = Vector2(0.0895934, 0.0895934)
+
+[node name="EnemyDartWing3" parent="." instance=ExtResource("3_2c4fu")]
+z_index = 2
+position = Vector2(1572, 361)
+rotation = -3.14159
+scale = Vector2(0.0895934, 0.0895934)
+
+[node name="EnemyDartWing4" parent="." instance=ExtResource("3_2c4fu")]
+z_index = 2
+position = Vector2(1146, 367)
 rotation = -3.14159
 scale = Vector2(0.0895934, 0.0895934)
 

@@ -36,7 +36,4 @@ func get_distance_to_target(target_body: Node) -> float:
 # Function to draw the laser
 func _draw():
 	if target != null:
-		draw_circle(laser_end, 100, Color(1, 1, 1)) # Way off for some reason
-		draw_circle(laser_start, 5, Color(1, 0, 0))
-		draw_circle(laser_end, 5, Color(0, 1, 0))
 		draw_line(laser_start, laser_end, laser_color, laser_width)
