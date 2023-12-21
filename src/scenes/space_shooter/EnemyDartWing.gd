@@ -2,6 +2,7 @@ extends Node2D
 
 # Speed of the enemy
 const SPEED: float = 1 # 100 normally, testing with 1
+@onready var progress_bar: ProgressBar = $EnemyDartWing/ProgressBar as ProgressBar
 
 # Reference to the target node
 var target: Node2D
@@ -15,6 +16,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	progress_bar.value = stats_component.health
+	
+	if stats_component.health < 0:
+		queue_free()
+
 	if target:
 		# Rotate towards the target
 		look_at(target.global_position)

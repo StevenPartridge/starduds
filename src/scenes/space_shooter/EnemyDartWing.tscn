@@ -28,8 +28,12 @@ texture = ExtResource("1_t7wtn")
 shape = SubResource("CircleShape2D_isf5g")
 
 [node name="ProgressBar" type="ProgressBar" parent="EnemyDartWing"]
-offset_right = 4.0
+offset_left = -345.0
+offset_top = -23.0
+offset_right = 354.0
 offset_bottom = 27.0
+step = 0.1
+value = 100.0
 
 [node name="HurtComponent" type="Node" parent="EnemyDartWing" node_paths=PackedStringArray("stats_component", "hurtbox_component")]
 script = ExtResource("3_wjai8")
