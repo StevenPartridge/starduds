@@ -32,7 +32,7 @@ text = "Level 2"
 
 [node name="Level3Button" type="Button" parent="VFlowContainer"]
 layout_mode = 2
-text = "Level 2"
+text = "Level 3"
 
 [node name="ParalaxSpaceBackground" parent="." instance=ExtResource("3_0y6vf")]
 scale = Vector2(2.5, 2.5)

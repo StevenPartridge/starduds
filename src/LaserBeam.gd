@@ -4,6 +4,7 @@ extends Node2D
 @export var laser_width: float = 10.0
 @export var power: float = 5
 @export var attack_delay: float = 1
+@export var attack_distance: float = 500
 
 var target: Node2D
 var laser_start: Vector2
@@ -34,23 +35,29 @@ func do_damage() -> void:
 
 # Function to select the nearest target
 func select_target() -> void:
+	if is_instance_valid(target) and get_distance_to_target(target) > attack_distance:
+		target = null
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	if enemies.size() > 0:
-		if !target: target = enemies[0]
 		for enemy in enemies: 
-			var distEnemy = get_distance_to_target(enemy)
-			var distTarget = get_distance_to_target(target)
-			if distEnemy < distTarget:
-				target = enemy
-				return
+			if is_instance_valid(enemy):
+				var distEnemy = get_distance_to_target(enemy)
+				if distEnemy > attack_distance: continue
+				if !target: target = enemy
+				var distTarget = get_distance_to_target(target)
+				if distEnemy < distTarget:
+					target = enemy
+					return
+	else:
+		target = null
 
 func update_laser_positions() -> void:
 	if target and is_instance_valid(target):  # Check if target exists and is in the tree
 		laser_start = position
 		laser_end = to_local(target.global_position)
 	else:
-		laser_start = Vector2.ZERO
-		laser_end = Vector2.ZERO
+		laser_start = position
+		laser_end = position
 
 # Utility function to get distance to a target
 func get_distance_to_target(target_body: Node) -> float:

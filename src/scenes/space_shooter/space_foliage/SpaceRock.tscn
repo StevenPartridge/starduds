@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c85m0jlxwtux6"]
+
+[ext_resource type="Script" path="res://scenes/space_shooter/space_foliage/SpaceRock.gd" id="1_r2dng"]
+[ext_resource type="Texture2D" uid="uid://davltyxq8rw1x" path="res://assets/space_background_pack/SpaceRock1.png" id="2_ong6u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e345h"]
+radius = 69.857
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_r2dng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e345h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ong6u")
