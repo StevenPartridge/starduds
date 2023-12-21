@@ -5,6 +5,7 @@ const SPEED: float = 1 # 100 normally, testing with 1
 
 # Reference to the target node
 var target: Node2D
+@onready var stats_component: StatsComponent = $EnemyDartWing/StatsComponent as StatsComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,3 +22,6 @@ func _process(delta):
 		# Move towards the target
 		var direction = (target.global_position - global_position).normalized()
 		position += direction * SPEED * delta
+		
+func _take_damage(damage: float) -> void:
+	stats_component.health = stats_component.health - damage
