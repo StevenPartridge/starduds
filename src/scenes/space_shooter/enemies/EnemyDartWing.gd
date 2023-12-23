@@ -1,7 +1,7 @@
 extends Node2D
 
 # Speed of the enemy
-const SPEED: float = 1 # 100 normally, testing with 1
+const SPEED: float = 100 # 100 normally, testing with 1
 @onready var progress_bar: ProgressBar = $EnemyDartWing/ProgressBar as ProgressBar
 
 # Reference to the target node

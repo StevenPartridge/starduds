@@ -14,7 +14,7 @@ func spawn(global_spawn_position: Vector2 = global_position, parent: Node = get_
 	# Instance the scene
 	var instance = scene.instantiate()
 	# Add it as a child of the parent
-	parent.add_child(instance)
+	parent.add_child.call_deferred(instance)
 	# Update the global position of the instance.
 	# (This must be done after adding it as a child)
 	instance.global_position = global_spawn_position
