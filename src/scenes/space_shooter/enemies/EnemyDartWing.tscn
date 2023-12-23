@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bkyfmcq1lfiuq"]
 
-[ext_resource type="Script" path="res://scenes/space_shooter/EnemyDartWing.gd" id="1_o5hbk"]
+[ext_resource type="Script" path="res://scenes/space_shooter/enemies/EnemyDartWing.gd" id="1_o5hbk"]
 [ext_resource type="Texture2D" uid="uid://hmegcmdn6f6a" path="res://assets/DartWing.png" id="1_t7wtn"]
 [ext_resource type="Script" path="res://components/hurt_component.gd" id="3_wjai8"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_qkji0"]

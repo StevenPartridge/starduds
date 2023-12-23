@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b7q8iovrwhrq4"]
 
-[ext_resource type="PackedScene" uid="uid://c2caru4t8hysw" path="res://scenes/space_shooter/BackgroundSpace.tscn" id="1_xyl74"]
-[ext_resource type="PackedScene" uid="uid://ci8bwqa2aii8e" path="res://scenes/space_shooter/SpaceShip.tscn" id="2_0ah2v"]
-[ext_resource type="PackedScene" uid="uid://bkyfmcq1lfiuq" path="res://scenes/space_shooter/EnemyDartWing.tscn" id="3_2c4fu"]
+[ext_resource type="PackedScene" uid="uid://c2caru4t8hysw" path="res://scenes/space_shooter/background/BackgroundSpace.tscn" id="1_xyl74"]
+[ext_resource type="PackedScene" uid="uid://ci8bwqa2aii8e" path="res://scenes/space_shooter/character/SpaceShip.tscn" id="2_0ah2v"]
+[ext_resource type="PackedScene" uid="uid://bkyfmcq1lfiuq" path="res://scenes/space_shooter/enemies/EnemyDartWing.tscn" id="3_2c4fu"]
 [ext_resource type="PackedScene" uid="uid://c85m0jlxwtux6" path="res://scenes/space_shooter/space_foliage/SpaceRock.tscn" id="4_kq8tl"]
 
 [node name="level3" type="Node2D"]

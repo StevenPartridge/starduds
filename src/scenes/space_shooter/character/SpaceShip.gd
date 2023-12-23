@@ -48,31 +48,6 @@ func handle_tilt():
 
 	# Store the current rotation for the next frame's calculation
 	previous_rotation = rotation
-	
-#func update_visuals():
-#	if sprite_2d and sprite_2d.material:
-#		var shader: ShaderMaterial = sprite_2d.material as ShaderMaterial
-#
-#		# Calculate rotation values
-#		print(velocity.angle())
-#		var angle = velocity.angle()
-#		var x_rot: float
-#		var y_rot: float
-#
-#		# Here you might determine the x_rot and y_rot based on the angle.
-#		# This is a simple example where we map the angle to x and y rotations directly.
-#		# You'll need to adjust the logic here to fit how your shader interprets x_rot and y_rot.
-#
-#		# Normalize the angle to be within the range of -MAX_ROT to MAX_ROT
-#		angle = max(min(angle, MAX_ROT), -MAX_ROT)
-#
-#		# Assuming a simple linear relationship for demonstration:
-#		x_rot = cos(angle) * MAX_ROT
-#		y_rot = sin(angle) * MAX_ROT
-#
-#		# Set shader parameters
-#		shader.set_shader_parameter("x_rot", x_rot)
-#		shader.set_shader_parameter("y_rot", y_rot)
 
 # Handle user input
 func handle_input(delta):

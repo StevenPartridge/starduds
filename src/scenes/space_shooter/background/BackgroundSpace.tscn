@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c2caru4t8hysw"]
 
-[ext_resource type="Shader" path="res://scenes/space_shooter/BackgroundNebula.gdshader" id="1_5srjs"]
-[ext_resource type="Script" path="res://scenes/space_shooter/BackgroundSpace.gd" id="1_mm2ox"]
+[ext_resource type="Shader" path="res://scenes/space_shooter/background/BackgroundNebula.gdshader" id="1_5srjs"]
+[ext_resource type="Script" path="res://scenes/space_shooter/background/BackgroundSpace.gd" id="1_mm2ox"]
 [ext_resource type="Texture2D" uid="uid://bjan6fnt68rhm" path="res://assets/pixil-frame-0.png" id="2_bqwxn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vcgoi"]
