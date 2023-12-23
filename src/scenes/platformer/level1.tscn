@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6uq2f25mvhhe"]
 
-[ext_resource type="TileSet" uid="uid://2of4433rbek" path="res://space-station-tileset-2-electric-boogaloo.tres" id="1_gsuyr"]
+[ext_resource type="TileSet" uid="uid://2of4433rbek" path="res://scenes/platformer/space-station-tileset-2-electric-boogaloo.tres" id="1_gsuyr"]
 [ext_resource type="Script" path="res://scenes/platformer/level1.gd" id="1_h6bgv"]
 [ext_resource type="PackedScene" uid="uid://dluh1idvsspyg" path="res://scenes/platformer/inventory/items/Coin.tscn" id="2_8vogx"]
 [ext_resource type="PackedScene" uid="uid://bakmgd4lkduxf" path="res://scenes/extras/ParalaxSpaceBackground.tscn" id="3_pd8w6"]
-[ext_resource type="PackedScene" uid="uid://c2ubwtotplyjx" path="res://Manny5/Manny5.tscn" id="3_vfl6x"]
+[ext_resource type="PackedScene" uid="uid://c2ubwtotplyjx" path="res://character_platformer/character_platformer.tscn" id="3_vfl6x"]
 [ext_resource type="PackedScene" uid="uid://c3brynygnrcva" path="res://scenes/platformer/inventory/coins_ui.tscn" id="4_07w0q"]
 [ext_resource type="PackedScene" uid="uid://bc7456s2uhxy1" path="res://scenes/platformer/portal.tscn" id="4_hi1lu"]
 [ext_resource type="PackedScene" uid="uid://b8871b365l135" path="res://scenes/extras/Nav.tscn" id="5_jw8ua"]

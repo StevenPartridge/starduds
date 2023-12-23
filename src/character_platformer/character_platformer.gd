@@ -185,8 +185,6 @@ func update_state():
 			fsm.change_state(state_push_pull_idle)
 		else:
 			fsm.change_state(state_idle)
-#	elif !is_on_floor() and !is_on_wall():
-#		fsm.change_state(state_jump)
 
 func reset_jump_states():
 	jump_state = JumpState.FLOOR  # Reset double jump when on the floor

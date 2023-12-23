@@ -2,15 +2,11 @@ extends Node2D
 
 var sprite_2d: Sprite2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_tree().get_nodes_in_group("has_shader").size() > 0:
 		sprite_2d = get_tree().get_nodes_in_group("has_shader")[0]
 		print(sprite_2d.get_class())
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
