@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=13 format=3 uid="uid://2of4433rbek"]
 
-[ext_resource type="Texture2D" uid="uid://2ueui6pmg18k" path="res://assets/space-station/Tiles/Tile (1).png" id="1_muwqf"]
-[ext_resource type="Texture2D" uid="uid://bh0p8eqntgbmh" path="res://assets/space-station/Tiles/Tile (2).png" id="2_uwhg3"]
-[ext_resource type="Texture2D" uid="uid://m81f7ti8y1g" path="res://assets/space-station/Tiles/Tile (3).png" id="3_vxh7x"]
-[ext_resource type="Texture2D" uid="uid://0lnut54wdw27" path="res://assets/space-station/Tiles/BGTile (2).png" id="4_2mmei"]
-[ext_resource type="Texture2D" uid="uid://bm5e0ekm70abv" path="res://assets/space-station/Tiles/Tile (5).png" id="4_dht8o"]
-[ext_resource type="Texture2D" uid="uid://dsfvftucp0jyg" path="res://assets/space-station/Tiles/Tile (15).png" id="5_oeflh"]
+[ext_resource type="Texture2D" uid="uid://2ueui6pmg18k" path="res://assets/space_background_pack/space-station/Tiles/Tile (1).png" id="1_muwqf"]
+[ext_resource type="Texture2D" uid="uid://bh0p8eqntgbmh" path="res://assets/space_background_pack/space-station/Tiles/Tile (2).png" id="2_uwhg3"]
+[ext_resource type="Texture2D" uid="uid://m81f7ti8y1g" path="res://assets/space_background_pack/space-station/Tiles/Tile (3).png" id="3_vxh7x"]
+[ext_resource type="Texture2D" uid="uid://0lnut54wdw27" path="res://assets/space_background_pack/space-station/Tiles/BGTile (2).png" id="4_2mmei"]
+[ext_resource type="Texture2D" uid="uid://bm5e0ekm70abv" path="res://assets/space_background_pack/space-station/Tiles/Tile (5).png" id="4_dht8o"]
+[ext_resource type="Texture2D" uid="uid://dsfvftucp0jyg" path="res://assets/space_background_pack/space-station/Tiles/Tile (15).png" id="5_oeflh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrkvi"]
 resource_name = "PlatformTopLeft"
