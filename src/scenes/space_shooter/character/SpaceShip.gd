@@ -50,7 +50,7 @@ func handle_tilt():
 	previous_rotation = rotation
 
 # Handle user input
-func handle_input(delta):
+func handle_input(_delta):
 	target_direction = Vector2.ZERO
 
 	if Input.is_action_pressed("MoveRight"):

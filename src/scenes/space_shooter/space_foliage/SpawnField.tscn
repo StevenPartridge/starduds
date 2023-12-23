@@ -1,14 +1,14 @@
 [gd_scene load_steps=5 format=3 uid="uid://bml453f13t06s"]
 
-[ext_resource type="Script" path="res://scenes/space_shooter/enemies/enemy_field.gd" id="1_paau2"]
+[ext_resource type="Script" path="res://scenes/space_shooter/space_foliage/SpawnField.gd" id="1_48c7j"]
 [ext_resource type="Script" path="res://components/spawner_component.gd" id="2_fgs3d"]
 [ext_resource type="PackedScene" uid="uid://bkyfmcq1lfiuq" path="res://scenes/space_shooter/enemies/EnemyDartWing.tscn" id="3_2taaa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uv78j"]
 size = Vector2(500, 500)
 
-[node name="EnemyField" type="Area2D"]
-script = ExtResource("1_paau2")
+[node name="SpawnField" type="Area2D"]
+script = ExtResource("1_48c7j")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uv78j")

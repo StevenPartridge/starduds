@@ -9,16 +9,13 @@ extends Area2D  # This script is attached to the Area2D node defining the spawni
 
 # Ready function
 func _ready():
+	spawner_component.scene = scene
 	# Calculate the number of instances to spawn based on density and the size of the area
 	var area_size = get_area_size()  # Get the size of the CollisionShape2D
-	var num_instances = int(area_size.x * area_size.y * density) / 1000  # Simple calculation, adjust as needed
-	
-	print(num_instances)
+	var num_instances = int((area_size.x * area_size.y * density / 1000))  # Simple calculation, adjust as needed
 
 	for i in range(num_instances):
-		var position = pick_random_position_within_area()
-		print(position)
-		spawner_component.spawn(position)
+		spawner_component.spawn(pick_random_position_within_area())
 		# Handle clustering if necessary, you can expand this logic
 
 func get_area_size() -> Vector2:

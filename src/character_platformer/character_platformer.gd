@@ -158,8 +158,6 @@ func update_state():
 	if !is_interacting:
 		$PinJoint2D.node_b = $PinJoint2D.node_a
 
-	# print('flip_h: ', anim.flip_h, ', Is_jumping: ', is_jumping, ', jump_state == JumpState.JUMP: ', jump_state == JumpState.JUMP, ', is_on_wall: ', is_on_wall(), ', is_on_floor: ', is_on_floor())
-
 	# Jump Logic
 	if is_crouching:
 		fsm.change_state(state_crouch)	
@@ -199,11 +197,6 @@ func collect_coin():
 			
 func get_inventory() -> Inventory:
 	return inventory
-
-func some_function():
-	print("start")
-	await get_tree().create_timer(1.0).timeout
-	print("end")
 
 func teleport_to(location: String) -> void:
 	

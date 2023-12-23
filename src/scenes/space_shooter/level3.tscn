@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c2caru4t8hysw" path="res://scenes/space_shooter/background/BackgroundSpace.tscn" id="1_xyl74"]
 [ext_resource type="PackedScene" uid="uid://ci8bwqa2aii8e" path="res://scenes/space_shooter/character/SpaceShip.tscn" id="2_0ah2v"]
-[ext_resource type="PackedScene" uid="uid://bml453f13t06s" path="res://scenes/space_shooter/enemies/enemy_field.tscn" id="2_h4daq"]
+[ext_resource type="PackedScene" uid="uid://bml453f13t06s" path="res://scenes/space_shooter/space_foliage/SpawnField.tscn" id="2_h4daq"]
 [ext_resource type="PackedScene" uid="uid://bkyfmcq1lfiuq" path="res://scenes/space_shooter/enemies/EnemyDartWing.tscn" id="3_2c4fu"]
 [ext_resource type="PackedScene" uid="uid://c85m0jlxwtux6" path="res://scenes/space_shooter/space_foliage/SpaceRock.tscn" id="4_kq8tl"]
 
@@ -16,6 +16,7 @@ position = Vector2(5772, 3278)
 scale = Vector2(23.28, 13.68)
 scene = ExtResource("3_2c4fu")
 density = 0.1
+cluster_probability = 0.3
 max_cluster_size = 3
 
 [node name="SpaceShip" parent="." groups=["player"] instance=ExtResource("2_0ah2v")]
@@ -23,19 +24,11 @@ position = Vector2(1033, 709)
 
 [node name="Camera2D" type="Camera2D" parent="SpaceShip" groups=["camera"]]
 position = Vector2(38, 0)
-zoom = Vector2(0.1, 0.1)
+zoom = Vector2(0.75, 0.75)
 
-[node name="RigidBody2D" parent="." instance=ExtResource("4_kq8tl")]
-position = Vector2(3179, 974)
-
-[node name="RigidBody2D2" parent="." instance=ExtResource("4_kq8tl")]
-position = Vector2(9148, 1474)
-
-[node name="RigidBody2D3" parent="." instance=ExtResource("4_kq8tl")]
-position = Vector2(9330, 5085)
-
-[node name="RigidBody2D4" parent="." instance=ExtResource("4_kq8tl")]
-position = Vector2(1940, 4754)
-
-[node name="RigidBody2D5" parent="." instance=ExtResource("4_kq8tl")]
-position = Vector2(840, 2415)
+[node name="AsteroidField" parent="." instance=ExtResource("2_h4daq")]
+position = Vector2(5772, 3278)
+scale = Vector2(21.1673, -15.6365)
+scene = ExtResource("4_kq8tl")
+density = 0.1
+cluster_probability = 0.2

@@ -32,10 +32,10 @@ func randomize_asteroid():
 	angular_velocity = randf_range(min_rotation_speed, max_rotation_speed)
 	linear_velocity = Vector2(randf_range(min_movement_speed, max_movement_speed), 0).rotated(randf() * 2.0 * PI)
 
-func _integrate_forces(state):
+func _integrate_forces(_state):
 	# Adjust physics behavior here if needed
 	pass
 
-func _on_Asteroid_body_entered(body):
+func _on_Asteroid_body_entered(_body):
 	# Handle collisions (e.g., nudge asteroid, damage to ship)
 	pass
