@@ -57,7 +57,7 @@ shape = SubResource("CapsuleShape2D_5s0yj")
 
 [node name="StatsComponent" type="Node" parent="EnemyDartWing"]
 script = ExtResource("5_7ofq6")
-health = 20.0
+health = -1.0
 
 [node name="SpawnerComponent" type="Node2D" parent="EnemyDartWing"]
 script = ExtResource("6_5csye")

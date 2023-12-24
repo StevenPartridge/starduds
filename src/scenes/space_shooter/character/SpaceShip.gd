@@ -88,6 +88,8 @@ func handle_rotation(delta):
 		rotation += clamp(angle_difference, -MAX_ROTATION_SPEED * delta, MAX_ROTATION_SPEED * delta)
 		
 func collect_powerup():
-	print("CollectingPowerupsInThere")
 	stats_component.powerups = stats_component.powerups + 1
 	laser_beam.power = int(5 + (stats_component.powerups * .5))
+	
+func get_power() -> int:
+	return stats_component.powerups

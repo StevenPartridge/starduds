@@ -17,6 +17,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if is_on_screen() and stats_component.health == -1:
+		if target and target.has_method("get_power"):
+			stats_component.health = 20 + target.get_power()
+
 	progress_bar.value = stats_component.health
 	
 	if stats_component.health < 0:
@@ -29,7 +33,21 @@ func _process(delta):
 
 		# Move towards the target
 		var direction = (target.global_position - global_position).normalized()
-		position += direction * SPEED * delta
+		if is_on_screen():
+			position += direction * SPEED * delta
 		
 func _take_damage(damage: float) -> void:
 	stats_component.health = stats_component.health - damage
+	
+func is_on_screen() -> bool:
+	var camera = get_viewport().get_camera_2d()
+	var screen_rect = camera.get_viewport_rect()
+	var padding = Vector2(500, 500)
+
+	# Enlarge the screen_rect by the padding amount
+	screen_rect.size += padding
+	# Adjust the position to keep the padded rectangle centered
+	screen_rect.position += camera.global_position - screen_rect.size * 0.5
+
+	# Now check if the global_position of the enemy is within the adjusted, padded screen_rect
+	return screen_rect.has_point(global_position)
