@@ -36,7 +36,8 @@ https://github.com/StevenPartridge/starduds/assets/22158507/7520a8c2-f156-4efc-9
 
 
   
-- **Level 3**: A space shooter with a twist. Point forward, pull the trigger, and pew pew pew! This level is focused on component-based development, featuring straightforward movement, projectiles, and potentially power-ups. We're also exploring adding shaders or particle physics for an extra kick.
+- **Level 3**: Okay we've got ourselves a top down space themed game where you hunt down and eliminate the enemy. I've implemented an enemy with AI that will seek to destroy you, an auto targeting laser system, a collectable dropped by killed enemies, and variable power and enemy hp based on number of collected items.
+
 
 (Note: More levels will be detailed as development progresses.)
 

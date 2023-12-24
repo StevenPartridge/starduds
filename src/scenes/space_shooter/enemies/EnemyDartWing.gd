@@ -17,7 +17,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if is_on_screen() and stats_component.health == -1:
+	if is_on_screen() and stats_component.health == 0:
 		if target and target.has_method("get_power"):
 			stats_component.health = 20 + target.get_power()
 
