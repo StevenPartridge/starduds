@@ -38,6 +38,7 @@ https://github.com/StevenPartridge/starduds/assets/22158507/7520a8c2-f156-4efc-9
   
 - **Level 3**: Okay we've got ourselves a top down space themed game where you hunt down and eliminate the enemy. I've implemented an enemy with AI that will seek to destroy you, an auto targeting laser system, a collectable dropped by killed enemies, and variable power and enemy hp based on number of collected items.
 
+https://github.com/StevenPartridge/starduds/assets/22158507/04b97a40-15f9-49a0-94f2-937c5d17e6aa
 
 (Note: More levels will be detailed as development progresses.)
 
