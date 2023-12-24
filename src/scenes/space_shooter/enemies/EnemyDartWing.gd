@@ -37,6 +37,9 @@ func _process(delta):
 			position += direction * SPEED * delta
 		
 func _take_damage(damage: float) -> void:
+	if stats_component.health == 0:
+		if target and target.has_method("get_power"):
+			stats_component.health = 20 + target.get_power()
 	stats_component.health = stats_component.health - damage
 	
 func is_on_screen() -> bool:

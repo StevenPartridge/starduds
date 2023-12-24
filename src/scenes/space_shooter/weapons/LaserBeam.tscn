@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dengrlt00wnhn" path="res://assets/space_background_pack/SpaceLaser.png" id="2_4j1f7"]
 
 [node name="LaserBeam" type="Node2D"]
+position = Vector2(-12, -2)
 script = ExtResource("1_tvexk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-26, -2)
 rotation = 1.57079
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_4j1f7")

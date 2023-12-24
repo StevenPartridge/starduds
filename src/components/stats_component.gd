@@ -13,7 +13,7 @@ extends Node
 		# Signal out when health is at 0
 		if health == 0: no_health.emit()
 		
-@export var powerups: float = 1:
+@export var powerups: int = 1:
 	set(value):
 		powerups = value
 
