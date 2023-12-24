@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bkyfmcq1lfiuq" path="res://scenes/space_shooter/enemies/EnemyDartWing.tscn" id="3_2c4fu"]
 [ext_resource type="PackedScene" uid="uid://c85m0jlxwtux6" path="res://scenes/space_shooter/space_foliage/SpaceRock.tscn" id="4_kq8tl"]
 
-[node name="level3" type="Node2D"]
+[node name="level3" type="Node2D" groups=["level"]]
 
 [node name="BackgroundSpace" parent="." instance=ExtResource("1_xyl74")]
 scale = Vector2(10, 10)
@@ -15,7 +15,7 @@ scale = Vector2(10, 10)
 position = Vector2(5772, 3278)
 scale = Vector2(23.28, 13.68)
 scene = ExtResource("3_2c4fu")
-density = 0.1
+density = 0.2
 cluster_probability = 0.3
 max_cluster_size = 3
 
@@ -30,5 +30,5 @@ zoom = Vector2(0.75, 0.75)
 position = Vector2(5772, 3278)
 scale = Vector2(21.1673, -15.6365)
 scene = ExtResource("4_kq8tl")
-density = 0.1
+density = 0.4
 cluster_probability = 0.2

@@ -23,6 +23,10 @@ SceneManager="*res://scenes/extras/SceneManager.tscn"
 
 window/stretch/mode="viewport"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 MoveLeft={

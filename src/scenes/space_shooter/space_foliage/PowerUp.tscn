@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl2n6gtfvjhxe"]
+
+[ext_resource type="Script" path="res://scenes/space_shooter/space_foliage/PowerUp.gd" id="1_t473j"]
+[ext_resource type="Texture2D" uid="uid://c6vl02x2pj5mn" path="res://assets/space_background_pack/Collectable1.png" id="2_hxrtd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tyjj1"]
+size = Vector2(51, 37)
+
+[node name="PowerUp" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_t473j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, 2.5)
+shape = SubResource("RectangleShape2D_tyjj1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.05176e-05, -3.05176e-05)
+scale = Vector2(0.064, 0.068)
+texture = ExtResource("2_hxrtd")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

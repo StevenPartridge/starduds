@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkyfmcq1lfiuq"]
+[gd_scene load_steps=10 format=3 uid="uid://bkyfmcq1lfiuq"]
 
 [ext_resource type="Script" path="res://scenes/space_shooter/enemies/EnemyDartWing.gd" id="1_o5hbk"]
 [ext_resource type="Texture2D" uid="uid://hmegcmdn6f6a" path="res://assets/DartWing.png" id="1_t7wtn"]
 [ext_resource type="Script" path="res://components/hurt_component.gd" id="3_wjai8"]
 [ext_resource type="Script" path="res://components/hurtbox_component.gd" id="4_qkji0"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="5_7ofq6"]
+[ext_resource type="Script" path="res://components/spawner_component.gd" id="6_5csye"]
+[ext_resource type="PackedScene" uid="uid://bl2n6gtfvjhxe" path="res://scenes/space_shooter/space_foliage/PowerUp.tscn" id="7_acqj2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_isf5g"]
 radius = 122.016
@@ -18,8 +20,7 @@ script = ExtResource("1_o5hbk")
 
 [node name="EnemyDartWing" type="CharacterBody2D" parent="."]
 position = Vector2(-4, 0)
-collision_layer = 5
-collision_mask = 5
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemyDartWing"]
 position = Vector2(-3.05176e-05, -3.05176e-05)
@@ -45,6 +46,8 @@ stats_component = NodePath("../StatsComponent")
 hurtbox_component = NodePath("../HurtboxComponent")
 
 [node name="HurtboxComponent" type="Area2D" parent="EnemyDartWing"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("4_qkji0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDartWing/HurtboxComponent"]
@@ -55,3 +58,7 @@ shape = SubResource("CapsuleShape2D_5s0yj")
 [node name="StatsComponent" type="Node" parent="EnemyDartWing"]
 script = ExtResource("5_7ofq6")
 health = 20.0
+
+[node name="SpawnerComponent" type="Node2D" parent="EnemyDartWing"]
+script = ExtResource("6_5csye")
+scene = ExtResource("7_acqj2")

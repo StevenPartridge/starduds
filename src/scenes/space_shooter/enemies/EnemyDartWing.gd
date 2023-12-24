@@ -3,6 +3,7 @@ extends Node2D
 # Speed of the enemy
 const SPEED: float = 100 # 100 normally, testing with 1
 @onready var progress_bar: ProgressBar = $EnemyDartWing/ProgressBar as ProgressBar
+@onready var spawner_component: SpawnerComponent = $EnemyDartWing/SpawnerComponent as SpawnerComponent
 
 # Reference to the target node
 var target: Node2D
@@ -19,6 +20,7 @@ func _process(delta):
 	progress_bar.value = stats_component.health
 	
 	if stats_component.health < 0:
+		spawner_component.spawn(global_position)
 		queue_free()
 
 	if target:

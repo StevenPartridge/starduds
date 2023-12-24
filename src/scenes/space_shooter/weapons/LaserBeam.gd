@@ -4,7 +4,7 @@ extends Node2D
 @export var laser_width: float = 10.0
 @export var power: float = 5
 @export var attack_delay: float = 1
-@export var attack_distance: float = 500
+@export var attack_distance: float = 1000
 
 var target: Node2D
 var laser_start: Vector2
@@ -15,9 +15,7 @@ var damage_delay: float = 0
 func _process(delta):
 	damage_delay -= delta  # Decrement the damage delay
 
-	if not target or not is_instance_valid(target):  # Check if target exists and is in the tree
-		select_target()
-
+	select_target()
 	update_laser_positions()
 	queue_redraw()  # Ensure the _draw() function is called
 	do_damage()

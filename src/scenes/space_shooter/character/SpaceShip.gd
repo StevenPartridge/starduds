@@ -1,7 +1,8 @@
 extends Node2D
 
-@onready var sprite_2d: Sprite2D = $CharacterBody2D/Sprite2D as Sprite2D
+@onready var sprite_2d = $Sprite2D
 @onready var laser_beam = $LaserBeam
+@onready var stats_component: StatsComponent = $StatsComponent as StatsComponent
 
 # Movement parameters
 const MAX_SPEED: float = 600
@@ -85,3 +86,8 @@ func handle_rotation(delta):
 			angle_difference += 2 * PI
 
 		rotation += clamp(angle_difference, -MAX_ROTATION_SPEED * delta, MAX_ROTATION_SPEED * delta)
+		
+func collect_powerup():
+	print("CollectingPowerupsInThere")
+	stats_component.powerups = stats_component.powerups + 1
+	laser_beam.power = int(5 + (stats_component.powerups * .5))
