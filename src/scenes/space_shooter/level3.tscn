@@ -23,11 +23,15 @@ max_cluster_size = 3
 position = Vector2(1033, 709)
 
 [node name="Camera2D" type="Camera2D" parent="SpaceShip" groups=["camera"]]
-position = Vector2(38, 0)
+position = Vector2(-17, 8)
 zoom = Vector2(0.75, 0.75)
+limit_left = 0
+limit_top = 0
+limit_right = 11500
+limit_bottom = 6628
 
 [node name="AsteroidField" parent="." instance=ExtResource("2_h4daq")]
-position = Vector2(5772, 3278)
+position = Vector2(5859, 3284)
 scale = Vector2(21.1673, -15.6365)
 scene = ExtResource("4_kq8tl")
 density = 0.4
