@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci8bwqa2aii8e"]
+[gd_scene load_steps=9 format=3 uid="uid://ci8bwqa2aii8e"]
 
 [ext_resource type="Script" path="res://scenes/space_shooter/character/SpaceShip.gd" id="1_2jq55"]
 [ext_resource type="Texture2D" uid="uid://dykxsfds6dbks" path="res://assets/spaceship.png" id="1_5w1gv"]
 [ext_resource type="Shader" path="res://scenes/space_shooter/character/SpaceShipTilt.gdshader" id="1_gkaqn"]
 [ext_resource type="PackedScene" uid="uid://csi4vomp8k1l7" path="res://scenes/space_shooter/weapons/LaserBeam.tscn" id="2_rqoc1"]
 [ext_resource type="Script" path="res://components/stats_component.gd" id="5_rq53w"]
+[ext_resource type="PackedScene" uid="uid://b2gkfmp5al011" path="res://scenes/space_shooter/space_foliage/ItemCollector.tscn" id="6_r3tuo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xp343"]
 radius = 41.0
@@ -34,9 +35,9 @@ position = Vector2(51, -2)
 scale = Vector2(0.424307, 0.424307)
 attack_distance = 1200.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="ShipCollision" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipCollision"]
 position = Vector2(-4, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_xp343")
@@ -52,3 +53,7 @@ texture = ExtResource("1_5w1gv")
 position = Vector2(-4, 0)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_xp343")
+
+[node name="ItemCollector" parent="." instance=ExtResource("6_r3tuo")]
+position = Vector2(0, -5)
+scale = Vector2(32.2928, 31.0013)

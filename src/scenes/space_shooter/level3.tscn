@@ -15,9 +15,6 @@ scale = Vector2(10, 10)
 position = Vector2(5772, 3278)
 scale = Vector2(23.28, 13.68)
 scene = ExtResource("3_2c4fu")
-density = 0.2
-cluster_probability = 0.3
-max_cluster_size = 3
 
 [node name="SpaceShip" parent="." groups=["player"] instance=ExtResource("2_0ah2v")]
 position = Vector2(1033, 709)
@@ -34,5 +31,3 @@ limit_bottom = 6628
 position = Vector2(5859, 3284)
 scale = Vector2(21.1673, -15.6365)
 scene = ExtResource("4_kq8tl")
-density = 0.4
-cluster_probability = 0.2

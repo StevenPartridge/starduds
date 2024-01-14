@@ -79,13 +79,13 @@ func handle_movement(delta):
 func handle_rotation(delta):
 	previous_rotation = rotation
 	if target_direction.length() > 0:
-		var angle_difference = fmod(target_rotation - rotation, 2 * PI)
-		if angle_difference > PI:
-			angle_difference -= 2 * PI
-		elif angle_difference < -PI:
-			angle_difference += 2 * PI
+		var angleDifference = fmod(target_rotation - rotation, 2 * PI)
+		if angleDifference > PI:
+			angleDifference -= 2 * PI
+		elif angleDifference < -PI:
+			angleDifference += 2 * PI
 
-		rotation += clamp(angle_difference, -MAX_ROTATION_SPEED * delta, MAX_ROTATION_SPEED * delta)
+		rotation += clamp(angleDifference, -MAX_ROTATION_SPEED * delta, MAX_ROTATION_SPEED * delta)
 		
 func collect_powerup():
 	stats_component.powerups = stats_component.powerups + 1
