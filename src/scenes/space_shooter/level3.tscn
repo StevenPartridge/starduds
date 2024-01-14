@@ -1,12 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7q8iovrwhrq4"]
+[gd_scene load_steps=7 format=3 uid="uid://b7q8iovrwhrq4"]
 
 [ext_resource type="PackedScene" uid="uid://c2caru4t8hysw" path="res://scenes/space_shooter/background/BackgroundSpace.tscn" id="1_xyl74"]
 [ext_resource type="PackedScene" uid="uid://ci8bwqa2aii8e" path="res://scenes/space_shooter/character/SpaceShip.tscn" id="2_0ah2v"]
 [ext_resource type="PackedScene" uid="uid://bml453f13t06s" path="res://scenes/space_shooter/space_foliage/SpawnField.tscn" id="2_h4daq"]
 [ext_resource type="PackedScene" uid="uid://bkyfmcq1lfiuq" path="res://scenes/space_shooter/enemies/EnemyDartWing.tscn" id="3_2c4fu"]
 [ext_resource type="PackedScene" uid="uid://c85m0jlxwtux6" path="res://scenes/space_shooter/space_foliage/SpaceRock.tscn" id="4_kq8tl"]
+[ext_resource type="PackedScene" uid="uid://da28xijwn27ct" path="res://scenes/space_shooter/character/ScoreUI.tscn" id="5_61bqo"]
 
 [node name="level3" type="Node2D" groups=["level"]]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreUi" parent="CanvasLayer" instance=ExtResource("5_61bqo")]
+offset_left = 1088.0
+offset_top = 16.0
+offset_right = 1088.0
+offset_bottom = 16.0
+scale = Vector2(1.05828, 1.1108)
 
 [node name="BackgroundSpace" parent="." instance=ExtResource("1_xyl74")]
 scale = Vector2(10, 10)

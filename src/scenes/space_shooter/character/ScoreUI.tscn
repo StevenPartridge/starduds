@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://da28xijwn27ct"]
+
+[ext_resource type="Script" path="res://scenes/space_shooter/character/ScoreUI.gd" id="1_mff5i"]
+
+[node name="ScoreUi" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mff5i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+z_index = 4
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 26
+text = "0"

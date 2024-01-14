@@ -29,6 +29,7 @@ script = ExtResource("1_2jq55")
 [node name="StatsComponent" type="Node" parent="."]
 script = ExtResource("5_rq53w")
 health = 100.0
+powerups = 0
 
 [node name="LaserBeam" parent="." instance=ExtResource("2_rqoc1")]
 position = Vector2(51, -2)
