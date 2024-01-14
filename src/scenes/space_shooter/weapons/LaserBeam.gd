@@ -17,14 +17,13 @@ var damage_delay: float = 0
 func _process(delta):
 	damage_delay -= delta  # Decrement the damage delay
 	
-	if !target:
-		color_rect.visible = false
-	else:
-		color_rect.visible = true
 
 	select_target()
 	update_laser_beam()
 	do_damage()
+	
+	if !is_instance_valid(target):
+		color_rect.size = Vector2.ZERO
 
 func calculate_damage() -> float:
 	# TODO: Add a function for random damage per attack
