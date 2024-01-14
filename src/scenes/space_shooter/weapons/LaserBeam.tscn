@@ -11,3 +11,7 @@ script = ExtResource("1_tvexk")
 rotation = 1.57079
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_4j1f7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
