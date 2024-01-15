@@ -36,6 +36,18 @@ position = Vector2(51, -2)
 scale = Vector2(0.424307, 0.424307)
 attack_distance = 1200.0
 
+[node name="LaserBeam2" parent="." instance=ExtResource("2_rqoc1")]
+position = Vector2(16, 36)
+rotation = 1.59056
+scale = Vector2(0.424307, 0.424307)
+attack_distance = 1200.0
+
+[node name="LaserBeam3" parent="." instance=ExtResource("2_rqoc1")]
+position = Vector2(13, -39)
+rotation = 4.68769
+scale = Vector2(0.424307, 0.424307)
+attack_distance = 1200.0
+
 [node name="ShipCollision" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShipCollision"]
