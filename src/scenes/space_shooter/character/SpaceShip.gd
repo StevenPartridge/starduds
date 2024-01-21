@@ -16,6 +16,10 @@ var target_direction: Vector2 = Vector2.ZERO
 var target_rotation: float = 0.0
 var previous_rotation: float
 
+var is_teleport: bool = false
+var move_to = [0.0, 0.0]
+@onready var animation_player = $AnimationPlayer
+
 func _ready():
 	# ... Background initialization ...
 	pass
@@ -50,8 +54,21 @@ func handle_tilt():
 	# Store the current rotation for the next frame's calculation
 	previous_rotation = rotation
 
+func teleport_to(location: String) -> void:
+	await get_tree().create_timer(0.4).timeout
+	SceneManager.SwitchScene(location)
+
+func gravity_to(x: int, y: int):
+	is_teleport = true
+	animation_player.play("Teleport")
+	move_to = [x,y]
+
+
 # Handle user input
 func handle_input(_delta):
+	if is_teleport:
+		pass
+
 	target_direction = Vector2.ZERO
 
 	if Input.is_action_pressed("MoveRight"):
@@ -68,10 +85,16 @@ func handle_input(_delta):
 
 # Handle the movement of the ship
 func handle_movement(delta):
-	if target_direction.length() > 0:
-		velocity = velocity.move_toward(target_direction.normalized() * MAX_SPEED, delta * MAX_SPEED / ACCELERATION_TIME)
+	if is_teleport:
+		var target = Vector2(move_to[0], move_to[1])
+		if target != Vector2.ZERO:
+			var direction = (target - position).normalized()
+			velocity = direction * 120
 	else:
-		velocity = velocity.move_toward(Vector2.ZERO, delta * MAX_SPEED / DECELERATION_TIME)
+		if target_direction.length() > 0:
+			velocity = velocity.move_toward(target_direction.normalized() * MAX_SPEED, delta * MAX_SPEED / ACCELERATION_TIME)
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, delta * MAX_SPEED / DECELERATION_TIME)
 
 	position += velocity * delta
 

@@ -9,6 +9,5 @@ func get_area_size() -> float:
 	return 0.0
 
 func _on_area_entered(body):
-	print(body.name)
 	if body.has_method("gravity_to"):
 		body.gravity_to(get_parent())
