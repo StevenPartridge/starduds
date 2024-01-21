@@ -48,4 +48,5 @@ priority = 2
 scene = ExtResource("4_kq8tl")
 
 [node name="portal" parent="." instance=ExtResource("8_5mnib")]
+visible = false
 position = Vector2(1595, 729)

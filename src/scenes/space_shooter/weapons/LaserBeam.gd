@@ -29,8 +29,20 @@ func _process(delta):
 		color_rect.size = Vector2.ZERO
 
 func calculate_damage() -> float:
-	# TODO: Add a function for random damage per attack
-	return power
+	var chance = randf()
+
+	var random_variation = randf_range(0.5, 1.5)
+	var rolled_damage = power * random_variation # power is known to be between 5 and 10, so this will be min: 2.5, max: 15
+		
+	# 20% chance of a critical hit
+	if chance < 0.2:
+		return rolled_damage * 2  # Critical damage is double the power
+
+	# 10% chance of a miss
+	elif chance < 0.3:
+		return 0  # Miss means no damage
+
+	return rolled_damage
 
 func do_damage() -> void:
 	if not target or damage_delay > 0:  # Check if target exists and if delay is still active

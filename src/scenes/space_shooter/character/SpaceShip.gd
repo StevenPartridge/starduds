@@ -119,8 +119,13 @@ func handle_rotation(delta):
 func collect_powerup():
 	stats_component.powerups = stats_component.powerups + 1
 	laser_beam.power = int(5 + (stats_component.powerups * .5))
-	laser_beam_2.power = int(5 + (stats_component.powerups * .5))
-	laser_beam_3.power = int(5 + (stats_component.powerups * .5))
+	
+	if stats_component.powerups >= 5:
+		laser_beam_2.is_active = true
+		laser_beam_2.power = int(5 + (stats_component.powerups * .5))
+	if stats_component.powerups >= 10:
+		laser_beam_3.is_active = true
+		laser_beam_3.power = int(5 + (stats_component.powerups * .5))
 	
 func get_power() -> int:
 	return stats_component.powerups
