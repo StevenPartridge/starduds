@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var sprite_2d = $Sprite2D
 @onready var laser_beam = $LaserBeam
+@onready var laser_beam_2 = $LaserBeam2
+@onready var laser_beam_3 = $LaserBeam3
+
 @onready var stats_component: StatsComponent = $StatsComponent as StatsComponent
 
 # Movement parameters
@@ -22,6 +25,7 @@ var move_to = [0.0, 0.0]
 
 func _ready():
 	# ... Background initialization ...
+	laser_beam.is_active = true
 	pass
 
 func _process(delta):
@@ -29,6 +33,8 @@ func _process(delta):
 	handle_movement(delta)
 	handle_rotation(delta)
 	handle_tilt()
+	if is_teleport:
+		handle_teleport()
 
 func handle_tilt():
 	var shader: ShaderMaterial
@@ -113,6 +119,13 @@ func handle_rotation(delta):
 func collect_powerup():
 	stats_component.powerups = stats_component.powerups + 1
 	laser_beam.power = int(5 + (stats_component.powerups * .5))
+	laser_beam_2.power = int(5 + (stats_component.powerups * .5))
+	laser_beam_3.power = int(5 + (stats_component.powerups * .5))
 	
 func get_power() -> int:
 	return stats_component.powerups
+	
+func handle_teleport() -> void:
+	laser_beam.is_active = false
+	laser_beam_2.is_active = false
+	laser_beam_3.is_active = false

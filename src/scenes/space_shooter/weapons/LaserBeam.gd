@@ -12,9 +12,14 @@ var target: Node2D
 var laser_start: Vector2
 var laser_end: Vector2
 var damage_delay: float = 0
+@export var is_active: bool = false
 
 
 func _process(delta):
+	if !is_active:
+		color_rect.visible = false
+		return
+
 	damage_delay -= delta  # Decrement the damage delay
 	select_target()
 	update_laser_beam()
@@ -78,3 +83,4 @@ func update_laser_beam() -> void:
 	color_rect.global_position = laser_start
 	color_rect.modulate = laser_color
 	color_rect.visible = true
+	
