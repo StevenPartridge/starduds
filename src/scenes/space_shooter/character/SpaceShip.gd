@@ -19,6 +19,9 @@ var target_direction: Vector2 = Vector2.ZERO
 var target_rotation: float = 0.0
 var previous_rotation: float
 
+var damage_window: float = 0.0
+const DAMAGE_DELAY: float = 0.5
+
 var is_teleport: bool = false
 var move_to = [0.0, 0.0]
 @onready var animation_player = $AnimationPlayer
@@ -29,6 +32,9 @@ func _ready():
 	pass
 
 func _process(delta):
+	if damage_window > 0:
+		damage_window = damage_window - delta
+
 	handle_input(delta)
 	handle_movement(delta)
 	handle_rotation(delta)
@@ -115,7 +121,13 @@ func handle_rotation(delta):
 			angleDifference += 2 * PI
 
 		rotation += clamp(angleDifference, -MAX_ROTATION_SPEED * delta, MAX_ROTATION_SPEED * delta)
-		
+
+func take_damage(damage: float) -> void:
+	print("taking damage: " + str(stats_component.health))
+	if damage_window > 0:
+		return
+	stats_component.health = stats_component.health - damage
+
 func collect_powerup():
 	stats_component.powerups = stats_component.powerups + 1
 	laser_beam.power = int(5 + (stats_component.powerups * .5))

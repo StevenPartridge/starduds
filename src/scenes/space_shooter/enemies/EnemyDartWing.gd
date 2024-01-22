@@ -1,13 +1,15 @@
-extends Node2D
+extends CharacterBody2D
 
 # Speed of the enemy
 const SPEED: float = 100 # 100 normally, testing with 1
-@onready var progress_bar: ProgressBar = $EnemyDartWing/ProgressBar as ProgressBar
-@onready var spawner_component: SpawnerComponent = $EnemyDartWing/SpawnerComponent as SpawnerComponent
+@onready var progress_bar: ProgressBar = $ProgressBar as ProgressBar
+@onready var spawner_component: SpawnerComponent = $SpawnerComponent as SpawnerComponent
+
+var base_damage: float = 0
 
 # Reference to the target node
 var target: Node2D
-@onready var stats_component: StatsComponent = $EnemyDartWing/StatsComponent as StatsComponent
+@onready var stats_component: StatsComponent = $StatsComponent as StatsComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,7 @@ func _process(delta):
 	if is_on_screen() and stats_component.health == 0:
 		if target and target.has_method("get_power"):
 			stats_component.health = 20 + target.get_power()
+			base_damage = stats_component.health
 
 	progress_bar.value = stats_component.health
 	
@@ -54,3 +57,19 @@ func is_on_screen() -> bool:
 
 	# Now check if the global_position of the enemy is within the adjusted, padded screen_rect
 	return screen_rect.has_point(global_position)
+
+func get_damage_dealt():
+	var chance = randf()
+	# base_damage = starting health, so 20 + player power (5-10)
+	var damage = base_damage / randf_range(4, 8)
+	
+	if chance < 0.2:
+		return damage * 1.5
+	elif chance < 0.3:
+		return 0
+	else:
+		return damage
+
+func _on_hurtbox_component_hurt(body):
+	if body.get_parent().has_method("take_damage"):
+		body.get_parent().take_damage(get_damage_dealt())
